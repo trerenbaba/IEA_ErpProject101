@@ -30,14 +30,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         private void InitializeComponent()
         {
             this.pnlUst = new System.Windows.Forms.Panel();
+            this.btnFormCikis = new System.Windows.Forms.Button();
             this.pnlAlt = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.btnFormCikis = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -92,8 +92,20 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
             this.pnlUst.Name = "pnlUst";
-            this.pnlUst.Size = new System.Drawing.Size(1028, 58);
+            this.pnlUst.Size = new System.Drawing.Size(1118, 58);
             this.pnlUst.TabIndex = 0;
+            // 
+            // btnFormCikis
+            // 
+            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormCikis.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.exit_48;
+            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFormCikis.Location = new System.Drawing.Point(1051, 9);
+            this.btnFormCikis.Name = "btnFormCikis";
+            this.btnFormCikis.Size = new System.Drawing.Size(58, 39);
+            this.btnFormCikis.TabIndex = 0;
+            this.btnFormCikis.UseVisualStyleBackColor = true;
+            this.btnFormCikis.Click += new System.EventHandler(this.btnFormCikis_Click);
             // 
             // pnlAlt
             // 
@@ -105,35 +117,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAlt.Location = new System.Drawing.Point(0, 524);
             this.pnlAlt.Name = "pnlAlt";
-            this.pnlAlt.Size = new System.Drawing.Size(1028, 43);
+            this.pnlAlt.Size = new System.Drawing.Size(1118, 43);
             this.pnlAlt.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(940, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 28);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(833, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 28);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(762, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 28);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -144,6 +129,33 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.button5.Text = "button1";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(762, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(65, 28);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "button1";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(833, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 28);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "button1";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(940, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 28);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "button1";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -152,7 +164,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1028, 95);
+            this.dataGridView1.Size = new System.Drawing.Size(1118, 95);
             this.dataGridView1.TabIndex = 2;
             // 
             // splitter1
@@ -162,21 +174,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter1.Location = new System.Drawing.Point(0, 419);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1028, 10);
+            this.splitter1.Size = new System.Drawing.Size(1118, 10);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
-            // 
-            // btnFormCikis
-            // 
-            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormCikis.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.exit_48;
-            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFormCikis.Location = new System.Drawing.Point(961, 9);
-            this.btnFormCikis.Name = "btnFormCikis";
-            this.btnFormCikis.Size = new System.Drawing.Size(58, 39);
-            this.btnFormCikis.TabIndex = 0;
-            this.btnFormCikis.UseVisualStyleBackColor = true;
-            this.btnFormCikis.Click += new System.EventHandler(this.btnFormCikis_Click);
             // 
             // label1
             // 
@@ -530,7 +530,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 567);
+            this.ClientSize = new System.Drawing.Size(1118, 567);
             this.Controls.Add(this.txtVerTcNo);
             this.Controls.Add(this.txtVergiDairesi);
             this.Controls.Add(this.txtCariTipi);
