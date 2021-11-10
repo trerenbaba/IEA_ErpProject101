@@ -34,6 +34,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             txtDepartman1.DisplayMember = "DepartmanAdi";
             txtDepartman1.SelectedIndex = -1;
 
+
             txtDepartman2.DataSource = lst1;
             txtDepartman2.ValueMember = "Id";
             txtDepartman2.DisplayMember = "DepartmanAdi";
