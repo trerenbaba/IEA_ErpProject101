@@ -56,5 +56,36 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         {
             Close();
         }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void btnKayit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            foreach (Control k in pnlOrta.Controls)
+            {
+                if (k is TextBox || k is ComboBox||k is MaskedTextBox )
+                {
+                    k.Text = "";
+                }
+            }
+        }
     }
 }

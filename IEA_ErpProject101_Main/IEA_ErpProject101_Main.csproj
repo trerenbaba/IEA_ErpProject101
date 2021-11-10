@@ -91,6 +91,9 @@
     <Compile Include="Entity\tblDepartmanlar.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblSehirler.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,9 +145,7 @@
   <ItemGroup>
     <None Include="Resources\Ara32x32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\RightLeft2Red.ico" />
   </ItemGroup>
@@ -162,6 +163,10 @@
       <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Images\Sil64.png" />
+    <None Include="Images\Sil24x24.png" />
+    <None Include="Images\Update32x32.png" />
+    <None Include="Images\Save-icon64x64.png" />
     <None Include="Resources\exit-48.png" />
     <None Include="Resources\Cikis32.png" />
   </ItemGroup>
