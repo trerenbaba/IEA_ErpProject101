@@ -12,21 +12,17 @@ namespace IEA_ErpProject101_Main.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class tblCariGruplari
+    public partial class tblSehirler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblCariGruplari()
+        public tblSehirler()
         {
-            this.tblDepartmanlar = new HashSet<tblDepartmanlar>();
             this.tblCariler = new HashSet<tblCariler>();
         }
     
-        public int Id { get; set; }
-        public string GrupAdi { get; set; }
-        public Nullable<bool> isActive { get; set; }
+        public int id { get; set; }
+        public string sehir { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblDepartmanlar> tblDepartmanlar { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblCariler> tblCariler { get; set; }
     }

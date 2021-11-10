@@ -83,16 +83,16 @@ namespace IEA_ErpProject101_Main
         }
         public static bool kontrol = false;
         private void tvBilgiGirisIslemleri_DoubleClick(object sender, EventArgs e)
-        { 
-            string isim= tvBilgiGirisIslemleri.SelectedNode.Text;
-            if(isim=="Hastaneler Listesi" && kontrol ==false)
+        {
+            string isim = tvBilgiGirisIslemleri.SelectedNode.Text;
+            if (isim == "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"]  is null) //kontrol == false
             {
                 frmHastanelerListesi frm = new frmHastanelerListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
                 kontrol = true;
             }
-            else if (isim=="Hastane Bilgi Giriş"&&kontrol==false)
+            else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] is null)  //kontrol==false
             {
                 frmHastaneGiris frm = new frmHastaneGiris();
                 frm.MdiParent = Form.ActiveForm;

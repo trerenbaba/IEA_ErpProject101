@@ -4,12 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89263a08e1b242bb865792bfa64b1ba3" Name="Diagram1" ZoomLevel="68">
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="89263a08e1b242bb865792bfa64b1ba3" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="5.25" PointY="2.5" />
-        <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="8.625" PointY="2.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblDepartmanlar_tblCariGrupları" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="4" PointY="5.75" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="11.5" PointY="1" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
