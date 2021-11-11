@@ -18,6 +18,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariNo" Type="nvarchar" MaxLength="10" />
           <Property Name="CariGroupId" Type="int" />
           <Property Name="CariTipId" Type="int" />
           <Property Name="CariAdi" Type="nvarchar" MaxLength="100" />
@@ -162,6 +163,7 @@
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="tblCariGruplari" Relationship="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" FromRole="tblCariler" ToRole="tblCariGruplari" />
           <NavigationProperty Name="tblSehirler" Relationship="ErpProjectWMPModel.FK_tblCariler_tblSehirler" FromRole="tblCariler" ToRole="tblSehirler" />
+          <Property Name="CariNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="ErpProjectWMPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblCariler" EntityType="Self.tblCariler" />
@@ -254,6 +256,7 @@
           <EntitySetMapping Name="tblCariler">
             <EntityTypeMapping TypeName="ErpProjectWMPModel.tblCariler">
               <MappingFragment StoreEntitySet="tblCariler">
+                <ScalarProperty Name="CariNo" ColumnName="CariNo" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />

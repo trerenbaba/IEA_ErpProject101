@@ -92,13 +92,13 @@ namespace IEA_ErpProject101_Main
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
                 frm.Activate();
-                //kontrol = true;
-            }else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] is null)
+            }
+            else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] is null)
             {
                 frmHastaneGiris frm = new frmHastaneGiris();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
-                //kontrol = true;
+                
             }
         }
     }
