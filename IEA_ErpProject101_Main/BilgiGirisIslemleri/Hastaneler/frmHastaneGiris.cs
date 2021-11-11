@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IEA_ErpProject101_Main.Entity;
 using IEA_ErpProject101_Main.Fonksiyonlar;
+using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 {
@@ -26,7 +28,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         private void frmHastaneGiris_Load(object sender, EventArgs e)
         {
             ComboDoldur();
-            Listele();    
+            Listele();
+            
         }
 
         private void Listele()
@@ -59,7 +62,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                 i++;
                 sira++;
             }
-            //Liste.AllowUserToAddRows
+            Liste.AllowUserToAddRows = false;
             lblHastaneKodu.Text = n.CariKoduHastane();
         }
 
@@ -260,36 +263,71 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             Ac(secimId);
         }
 
-        private void Ac(int secimId)
+        public void Ac(int id)
         {
-            tblCariler hst = erp.tblCariler.Find(secimId);
-            hst.isActive = true;
-            txtHastaneAdi.Text = hst.CariAdi;
-            txtHastaneMail.Text = hst.CariMail;
-            txtHasTel.Text = hst.CariTel;
-            txtYet1.Text=hst.YetkiliAdi1 ;
-            txtYet2.Text=hst.YetkiliAdi2 ;
-            txtYet3.Text = hst.YetkiliAdi3;
-            txtDepartman1.Text= hst.YetkiliDepartmani1 ;
-            txtDepartman2.Text= hst.YetkiliDepartmani2 ;
-            txtDepartman3.Text = hst.YetkiliDepartmani3;
-            txtYtel2.Text=hst.YetkiliTel2 ;
-            txtYtel3.Text=hst.YetkiliTel3 ;
-            txtYtel1.Text = hst.YetkiliTel1;
-            txtYcep1.Text=hst.YetkiliCep1 ;
-            txtYcep2.Text=hst.YetkiliCep2 ;
-            txtYcep3.Text = hst.YetkiliCep3;
-            txtEmail1.Text=hst.YetkiliMail1 ;
-            txtEmail2.Text=hst.YetkiliMail2 ;
-            txtEmail3.Text = hst.YetkiliMail3;
-            txtAdres1.Text= hst.Adres1 ;
-            txtAdres2.Text = hst.Adres2;
-            txtHastaneCari.Text = hst.CariUnvan;
-            txtVergiDairesi.Text = hst.Vdairesi;
-            txtVnTc.Text = hst.Tc_Vn;
-            txtSehir.Text = hst.tblSehirler.sehir;
-            lblHastaneKodu.Text = hst.CariNo;
-            
+            secimId = id; //dış formdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
+            try
+            {
+                tblCariler hst = erp.tblCariler.Find(id);
+                hst.isActive = true;
+                txtHastaneAdi.Text = hst.CariAdi;
+                txtHastaneMail.Text = hst.CariMail;
+                txtHasTel.Text = hst.CariTel;
+                txtYet1.Text = hst.YetkiliAdi1;
+                txtYet2.Text = hst.YetkiliAdi2;
+                txtYet3.Text = hst.YetkiliAdi3;
+                txtDepartman1.Text = hst.YetkiliDepartmani1;
+                txtDepartman2.Text = hst.YetkiliDepartmani2;
+                txtDepartman3.Text = hst.YetkiliDepartmani3;
+                txtYtel2.Text = hst.YetkiliTel2;
+                txtYtel3.Text = hst.YetkiliTel3;
+                txtYtel1.Text = hst.YetkiliTel1;
+                txtYcep1.Text = hst.YetkiliCep1;
+                txtYcep2.Text = hst.YetkiliCep2;
+                txtYcep3.Text = hst.YetkiliCep3;
+                txtEmail1.Text = hst.YetkiliMail1;
+                txtEmail2.Text = hst.YetkiliMail2;
+                txtEmail3.Text = hst.YetkiliMail3;
+                txtAdres1.Text = hst.Adres1;
+                txtAdres2.Text = hst.Adres2;
+                txtHastaneCari.Text = hst.CariUnvan;
+                txtVergiDairesi.Text = hst.Vdairesi;
+                txtVnTc.Text = hst.Tc_Vn;
+                txtSehir.Text = hst.tblSehirler.sehir;
+                lblHastaneKodu.Text = hst.CariNo;
+                txtKayitBul.Text = hst.CariNo;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button();
+            btn.Size = new Size(25,txtKayitBul.ClientSize.Height);
+            btn.Location = new Point(txtKayitBul.ClientSize.Width-btn.Width);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtKayitBul.Controls.Add(btn);
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+
+            if (Application.OpenForms["frmHastanelerListesi"] == null)
+            {
+                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();  
+            }
+            SendToBack();
         }
     }
 }

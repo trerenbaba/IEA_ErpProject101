@@ -1,7 +1,7 @@
 ﻿
-namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
+namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 {
-    partial class frmHastanelerListesi
+    partial class frmDoktorlarListesi
     {
         /// <summary>
         /// Required designer variable.
@@ -51,17 +51,17 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
             // pnlUst
             // 
             this.pnlUst.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnlUst.Controls.Add(this.lblHastaneKodu);
             this.pnlUst.Controls.Add(this.btnKaydet);
             this.pnlUst.Controls.Add(this.btnGuncelle);
             this.pnlUst.Controls.Add(this.btnFormCikis);
             this.pnlUst.Controls.Add(this.btnSil);
             this.pnlUst.Controls.Add(this.btnTemizle);
+            this.pnlUst.Controls.Add(this.lblHastaneKodu);
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(989, 67);
-            this.pnlUst.TabIndex = 1;
+            this.pnlUst.TabIndex = 4;
             // 
             // lblHastaneKodu
             // 
@@ -142,9 +142,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
             this.Liste.Location = new System.Drawing.Point(0, 67);
             this.Liste.MultiSelect = false;
             this.Liste.Name = "Liste";
-            this.Liste.Size = new System.Drawing.Size(989, 104);
-            this.Liste.TabIndex = 3;
-            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
+            this.Liste.Size = new System.Drawing.Size(989, 115);
+            this.Liste.TabIndex = 5;
             // 
             // Id
             // 
@@ -191,17 +190,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
             this.YetkiliAdi1.HeaderText = "YetkiliKisi";
             this.YetkiliAdi1.Name = "YetkiliAdi1";
             // 
-            // frmHastanelerListesi
+            // frmDoktorlarListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 495);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlUst);
-            this.Name = "frmHastanelerListesi";
-            this.Text = "frmHastanelerListesi";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHastanelerListesi_FormClosing);
-            this.Load += new System.EventHandler(this.frmHastanelerListesi_Load);
+            this.Name = "frmDoktorlarListesi";
+            this.Text = "frmDoktorlarListesi";
             this.pnlUst.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
@@ -211,12 +208,12 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
         #endregion
 
         private System.Windows.Forms.Panel pnlUst;
-        private System.Windows.Forms.Label lblHastaneKodu;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnFormCikis;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnTemizle;
+        private System.Windows.Forms.Label lblHastaneKodu;
         private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
