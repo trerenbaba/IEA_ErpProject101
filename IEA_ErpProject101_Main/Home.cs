@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri;
+using IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler;
 
 namespace IEA_ErpProject101_Main
@@ -82,23 +83,39 @@ namespace IEA_ErpProject101_Main
         public static bool kontrol = false;
         private void tvBilgiGirisIslemleri_DoubleClick(object sender, EventArgs e)
         {
-            
-            string isim = tvBilgiGirisIslemleri.SelectedNode.Text;
-            //MessageBox.Show(isim);
+            //string isim = "";
+            //if (tvBilgiGirisIslemleri.SelectedNode!=null)
+            //{
+            //    isim = tvBilgiGirisIslemleri.SelectedNode.Text;
+            //}
+
+            string isim = tvBilgiGirisIslemleri.SelectedNode != null ? tvBilgiGirisIslemleri.SelectedNode.Text : "";
 
             if (isim== "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] is null)
             {
                 frmHastanelerListesi frm = new frmHastanelerListesi();
-                frm.MdiParent = Form.ActiveForm;
+                frm.MdiParent = Home.ActiveForm;
                 frm.Show();
                 frm.Activate();
             }
             else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] is null)
             {
                 frmHastaneGiris frm = new frmHastaneGiris();
-                frm.MdiParent = Form.ActiveForm;
+                frm.MdiParent = Home.ActiveForm;
                 frm.Show();
                 
+            }
+            else if (isim== "Doktor Bilgi Giriş" && Application.OpenForms["frmDoktorGiris"] is null)
+            {
+                frmDoktorGiris frm = new frmDoktorGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] is null)
+            {
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
             }
         }
     }

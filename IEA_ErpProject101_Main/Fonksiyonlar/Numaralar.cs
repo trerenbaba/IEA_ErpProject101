@@ -14,14 +14,29 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
         {
             try
             {
-                var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id;
+                var numara = (from s in erp.tblCariler where s.CariGroupId == 1 orderby s.Id descending select s).First().Id;
                 numara++;
                 string num = "H" + numara.ToString().PadLeft(8, '0');
                 return num;
             }
             catch (Exception)
             {
-                return "00000001";
+                return "H00000001";
+            }
+        }
+
+        public string CariKoduDoktor()
+        {
+            try
+            {
+                var numara = (from s in erp.tblCariler where s.CariGroupId==2 orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "D" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "D00000001";
             }
         }
     }

@@ -40,6 +40,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGroupId==1
                        select new
                        {
                            id = s.Id,
