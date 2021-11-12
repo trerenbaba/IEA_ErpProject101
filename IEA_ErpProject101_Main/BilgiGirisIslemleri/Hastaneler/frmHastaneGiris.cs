@@ -293,7 +293,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                 txtHastaneCari.Text = hst.CariUnvan;
                 txtVergiDairesi.Text = hst.Vdairesi;
                 txtVnTc.Text = hst.Tc_Vn;
-                txtSehir.Text = hst.tblSehirler.sehir;
+                txtSehir.Text = hst.tblSehirler == null ? "" : hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariNo;
                 txtKayitBul.Text = hst.CariNo;
             }

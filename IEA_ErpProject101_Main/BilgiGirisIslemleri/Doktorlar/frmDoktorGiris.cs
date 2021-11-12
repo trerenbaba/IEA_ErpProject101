@@ -110,7 +110,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                     hst.CariUnvan   = txtDUnvan.Text;
                     hst.Vdairesi     = txtVergiDairesi.Text;
                     hst.Tc_Vn       = txtVnTc.Text;
-                    hst.SehirId     = (int?)txtSehir.SelectedValue ?? -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
+                    if (txtSehir.Text != "")
+                    {
+                        hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id; 
+                    }
                     hst.SaveUserId  = 1;
                     hst.SaveDate    = DateTime.Now;
                     hst.CariNo      = hkodu;
@@ -207,7 +210,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                 txtVergiDairesi.Text = dr.Vdairesi;
                 txtVnTc.Text = dr.Tc_Vn;
                 txtDepartman.Text = dr.YetkiliDepartmani1;
-                txtSehir.Text = dr.tblSehirler.sehir;
+                txtSehir.Text = dr.tblSehirler==null? "": dr.tblSehirler.sehir; 
 
             }
             catch (Exception)

@@ -5,13 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="89263a08e1b242bb865792bfa64b1ba3" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="3.75" PointY="3.375" />
         <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="8.625" PointY="2.5" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblDepartmanlar_tblCariGrupları" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="4" PointY="5.75" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="11.5" PointY="1" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="3.75" PointY="1.25" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="0.875" PointY="0.875" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="3.125" PointY="8.875" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
