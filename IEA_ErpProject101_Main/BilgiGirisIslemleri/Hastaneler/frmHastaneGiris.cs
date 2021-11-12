@@ -240,7 +240,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                 MessageBox.Show("Silme basarili");
                 Temizle();
                 Listele();
-            }
+            } 
         }
 
 
