@@ -187,6 +187,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 
         private void Guncelle()
         {
+            if (secimId < 0)
+            {
+                return;
+            }
             try
             {
                 tblCariler hst = erp.tblCariler.Find(secimId);

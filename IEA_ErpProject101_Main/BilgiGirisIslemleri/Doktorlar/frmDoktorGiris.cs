@@ -106,7 +106,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                     hst.CariUnvan = txtDUnvan.Text;
                     hst.Vdairesi = txtVergiDairesi.Text;
                     hst.Tc_Vn = txtVnTc.Text;
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                    if (txtSehir.Text != "")
+                    {
+                        hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                    }
                     hst.SaveUserId = 1;
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = hkodu;
@@ -132,6 +135,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 
         private void Guncelle()
         {
+            if (secimId<0)
+            {
+                return;
+            }
             try
             {
                 tblCariler hst = erp.tblCariler.Find(secimId);
@@ -189,7 +196,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                 txtDUnvan.Text = hst.CariUnvan;
                 txtVergiDairesi.Text = hst.Vdairesi;
                 txtVnTc.Text = hst.Tc_Vn;
-                txtSehir.Text = hst.tblSehirler.sehir;
+                txtSehir.Text = hst.tblSehirler==null ? "" : hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariNo;
                 txtKayitBul.Text = hst.CariNo;
             }
