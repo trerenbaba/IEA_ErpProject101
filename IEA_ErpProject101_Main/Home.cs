@@ -115,6 +115,13 @@ namespace IEA_ErpProject101_Main
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
             }
+            else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] is null)
+            {
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+
 
         }
     }

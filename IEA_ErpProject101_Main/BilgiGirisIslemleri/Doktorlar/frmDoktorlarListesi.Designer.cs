@@ -30,12 +30,12 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         private void InitializeComponent()
         {
             this.pnlUst = new System.Windows.Forms.Panel();
-            this.lblHastaneKodu = new System.Windows.Forms.Label();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnFormCikis = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
+            this.lblHastaneKodu = new System.Windows.Forms.Label();
             this.Liste = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,17 +62,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(989, 67);
             this.pnlUst.TabIndex = 4;
-            // 
-            // lblHastaneKodu
-            // 
-            this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblHastaneKodu.Location = new System.Drawing.Point(361, 21);
-            this.lblHastaneKodu.Name = "lblHastaneKodu";
-            this.lblHastaneKodu.Size = new System.Drawing.Size(510, 39);
-            this.lblHastaneKodu.TabIndex = 1;
-            this.lblHastaneKodu.Text = "***";
-            this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnKaydet
             // 
@@ -127,6 +116,17 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.btnTemizle.TabIndex = 0;
             this.btnTemizle.UseVisualStyleBackColor = true;
             // 
+            // lblHastaneKodu
+            // 
+            this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblHastaneKodu.Location = new System.Drawing.Point(361, 21);
+            this.lblHastaneKodu.Name = "lblHastaneKodu";
+            this.lblHastaneKodu.Size = new System.Drawing.Size(510, 39);
+            this.lblHastaneKodu.TabIndex = 1;
+            this.lblHastaneKodu.Text = "***";
+            this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Liste
             // 
             this.Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -144,6 +144,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.Liste.Name = "Liste";
             this.Liste.Size = new System.Drawing.Size(989, 115);
             this.Liste.TabIndex = 5;
+            this.Liste.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Liste_CellContentClick);
             // 
             // Id
             // 
@@ -199,6 +200,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             this.Controls.Add(this.pnlUst);
             this.Name = "frmDoktorlarListesi";
             this.Text = "frmDoktorlarListesi";
+            this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);
             this.pnlUst.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
