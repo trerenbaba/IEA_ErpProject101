@@ -225,6 +225,7 @@
       <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
+    <Content Include="OdevDosyasi.txt" />
     <None Include="Resources\arrow-1176.bmp" />
     <None Include="Images\Sil64.png" />
     <None Include="Images\Sil24x24.png" />
