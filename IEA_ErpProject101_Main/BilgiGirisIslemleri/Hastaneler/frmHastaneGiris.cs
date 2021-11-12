@@ -120,7 +120,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 
             try
             {
-                if (secimId==-1)
+                
+                if (secimId==-1 && txtHastaneAdi.Text!="")
                 {
                     tblCariler hst = new tblCariler();
                     hst.isActive = true;
