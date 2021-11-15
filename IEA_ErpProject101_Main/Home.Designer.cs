@@ -47,7 +47,7 @@ namespace IEA_ErpProject101_Main
             this.tv6 = new System.Windows.Forms.TreeView();
             this.tv5 = new System.Windows.Forms.TreeView();
             this.tv4 = new System.Windows.Forms.TreeView();
-            this.tv3 = new System.Windows.Forms.TreeView();
+            this.tvUrunIslemleri = new System.Windows.Forms.TreeView();
             this.tvDepoIslemleri = new System.Windows.Forms.TreeView();
             this.btnDepoIslemleri = new System.Windows.Forms.Button();
             this.btnBilgiGiris = new System.Windows.Forms.Button();
@@ -57,6 +57,7 @@ namespace IEA_ErpProject101_Main
             this.btnSolMenuArama = new System.Windows.Forms.Button();
             this.txtSolMenuArama = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btnUrunIslemleri = new System.Windows.Forms.Button();
             this.tabUstMenu.SuspendLayout();
             this.tapPGenel.SuspendLayout();
             this.pnlSolMenu.SuspendLayout();
@@ -141,6 +142,8 @@ namespace IEA_ErpProject101_Main
             // 
             // spcSolMenuOrta.Panel1
             // 
+            this.spcSolMenuOrta.Panel1.Controls.Add(this.tvUrunIslemleri);
+            this.spcSolMenuOrta.Panel1.Controls.Add(this.tvDepoIslemleri);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tvBilgiGirisIslemleri);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv12);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv11);
@@ -151,11 +154,10 @@ namespace IEA_ErpProject101_Main
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv6);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv5);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv4);
-            this.spcSolMenuOrta.Panel1.Controls.Add(this.tv3);
-            this.spcSolMenuOrta.Panel1.Controls.Add(this.tvDepoIslemleri);
             // 
             // spcSolMenuOrta.Panel2
             // 
+            this.spcSolMenuOrta.Panel2.Controls.Add(this.btnUrunIslemleri);
             this.spcSolMenuOrta.Panel2.Controls.Add(this.btnDepoIslemleri);
             this.spcSolMenuOrta.Panel2.Controls.Add(this.btnBilgiGiris);
             this.spcSolMenuOrta.Size = new System.Drawing.Size(287, 386);
@@ -254,14 +256,15 @@ namespace IEA_ErpProject101_Main
             this.tv4.TabIndex = 3;
             this.tv4.Visible = false;
             // 
-            // tv3
+            // tvUrunIslemleri
             // 
-            this.tv3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv3.Location = new System.Drawing.Point(0, 0);
-            this.tv3.Name = "tv3";
-            this.tv3.Size = new System.Drawing.Size(283, 222);
-            this.tv3.TabIndex = 2;
-            this.tv3.Visible = false;
+            this.tvUrunIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvUrunIslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvUrunIslemleri.Name = "tvUrunIslemleri";
+            this.tvUrunIslemleri.Size = new System.Drawing.Size(283, 222);
+            this.tvUrunIslemleri.TabIndex = 2;
+            this.tvUrunIslemleri.Visible = false;
+            this.tvUrunIslemleri.DoubleClick += new System.EventHandler(this.tvUrunIslemleri_DoubleClick);
             // 
             // tvDepoIslemleri
             // 
@@ -358,6 +361,16 @@ namespace IEA_ErpProject101_Main
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
+            // btnUrunIslemleri
+            // 
+            this.btnUrunIslemleri.Location = new System.Drawing.Point(172, 16);
+            this.btnUrunIslemleri.Name = "btnUrunIslemleri";
+            this.btnUrunIslemleri.Size = new System.Drawing.Size(75, 43);
+            this.btnUrunIslemleri.TabIndex = 2;
+            this.btnUrunIslemleri.Text = "Urun İşlemleri";
+            this.btnUrunIslemleri.UseVisualStyleBackColor = true;
+            this.btnUrunIslemleri.Click += new System.EventHandler(this.btnUrunIslemleri_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -407,7 +420,7 @@ namespace IEA_ErpProject101_Main
         private System.Windows.Forms.TreeView tv6;
         private System.Windows.Forms.TreeView tv5;
         private System.Windows.Forms.TreeView tv4;
-        private System.Windows.Forms.TreeView tv3;
+        private System.Windows.Forms.TreeView tvUrunIslemleri;
         private System.Windows.Forms.TreeView tvDepoIslemleri;
         private System.Windows.Forms.TreeView tvBilgiGirisIslemleri;
         private System.Windows.Forms.TreeView tv12;
@@ -416,6 +429,7 @@ namespace IEA_ErpProject101_Main
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBilgiGiris;
         private System.Windows.Forms.Button btnDepoIslemleri;
+        private System.Windows.Forms.Button btnUrunIslemleri;
     }
 }
 

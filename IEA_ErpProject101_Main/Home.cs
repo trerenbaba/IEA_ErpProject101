@@ -12,6 +12,7 @@ using IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller;
+using IEA_ErpProject101_Main.UrunIslemleri;
 
 namespace IEA_ErpProject101_Main
 {
@@ -49,7 +50,13 @@ namespace IEA_ErpProject101_Main
             #region Depo İşlemleri Menusu
             tvDepoIslemleri.Nodes.Add("Depo İşlemleri");
             tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Durum");
-            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi"); 
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi");
+            #endregion
+
+            #region Urun Islemleri
+            tvUrunIslemleri.Nodes.Add("Urunler");
+            tvUrunIslemleri.Nodes[0].Nodes.Add("Urun Giriş");
+            tvUrunIslemleri.Nodes[0].Nodes.Add("Urunler Listesi");
             #endregion
         }
 
@@ -57,7 +64,7 @@ namespace IEA_ErpProject101_Main
         {
             tvBilgiGirisIslemleri.Visible = false;
             tvDepoIslemleri.Visible = false;
-            tv3.Visible = false;
+            tvUrunIslemleri.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
             tv6.Visible = false;
@@ -146,6 +153,32 @@ namespace IEA_ErpProject101_Main
                 frmFirmalarListesi frm = new frmFirmalarListesi();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
+            }
+        }
+
+        private void btnUrunIslemleri_Click(object sender, EventArgs e)
+        {
+            lblBilgiEkrani.Text = btnUrunIslemleri.Text;
+            TvGorunum();
+            tvUrunIslemleri.Visible = true;
+        }
+
+        private void tvUrunIslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = tvUrunIslemleri.SelectedNode != null ? tvUrunIslemleri.SelectedNode.Text : "";
+
+            if (isim == "Urunler Listesi" && Application.OpenForms["frmUrunlerListesi"] is null)
+            {
+                frmUrunlerListesi frm = new frmUrunlerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Activate();
+            }else if (isim == "Urun Giriş" && Application.OpenForms["frmUrunGiris"] is null)
+            {
+                frmUrunGiris frm = new frmUrunGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Activate();
             }
         }
     }

@@ -271,6 +271,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                 }
                 lblFirmaKodu.Text = hst.CariNo;
                 txtKayitBul.Text = hst.CariNo;
+                txtFTipi.Text = hst.CariUnvan;
             }
             catch (Exception e)
             {

@@ -13,7 +13,7 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
         Sahis_Firmasi=3,
         Ara_Satici=4,
         Ana_Bayi=5,
-        Yurtdis=6,
+        Yurtdisi=6,
         Resmi=7,
     }
 }
