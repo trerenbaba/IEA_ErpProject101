@@ -33,9 +33,9 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst=(from s in erp.tblUrunler
-                    where s.TedarikciFirmaId== 1
-                        select s).ToList();
+            var lst = (from s in erp.tblUrunler
+                       where s.TedarikciFirmaId == 1
+                       select s).ToList();
 
             foreach (var k in lst)
             {
@@ -55,8 +55,13 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
 
         private void ComboDoldur()
         {
-            txtUrunTedarikciId.DataSource= Enum.GetValues(typeof(enumFirmaTipi)); 
-
+            txtUrunTedarikciId.DataSource = (from s in erp.tblCariler
+                                             where s.CariGroupId == 3
+                                             where s.CariUnvan == "Distributor"
+                                             select s).ToList();
+            txtUrunTedarikciId.ValueMember = "Id";
+            txtUrunTedarikciId.DisplayMember = "CariAdi";
+            txtUrunTedarikciId.SelectedIndex = -1;
         }
     }
 }

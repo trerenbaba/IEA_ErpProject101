@@ -141,6 +141,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                     {
                         hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
                     }
+
+                    hst.CariUnvan = txtFTipi.Text;
                     hst.SaveUserId = 1;
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = fkodu;
@@ -198,6 +200,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
                 {
                     hst.CariTipId = (int)txtFTipi.SelectedValue;
                 }
+
+                hst.CariUnvan = txtFTipi.Text;
                 hst.Vdairesi = txtVergiDairesi.Text;
                 hst.Tc_Vn = txtVnTc.Text;
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
