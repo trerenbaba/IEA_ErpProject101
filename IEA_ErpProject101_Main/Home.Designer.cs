@@ -32,39 +32,40 @@ namespace IEA_ErpProject101_Main
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.tabUstMenu = new System.Windows.Forms.TabControl();
             this.tabPGenel = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPYonetim = new System.Windows.Forms.TabPage();
             this.pnlAltBilgi = new System.Windows.Forms.Panel();
             this.pnlSolMenu = new System.Windows.Forms.Panel();
-            this.pnlSolIcUst = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.txtSolMenuArama = new System.Windows.Forms.TextBox();
-            this.lblBilgiEkrani = new System.Windows.Forms.Label();
             this.spcSolMenuOrta = new System.Windows.Forms.SplitContainer();
             this.tvBilgiGirisIslemleri = new System.Windows.Forms.TreeView();
-            this.tvDepoIslemleri = new System.Windows.Forms.TreeView();
-            this.tv3 = new System.Windows.Forms.TreeView();
-            this.tv4 = new System.Windows.Forms.TreeView();
-            this.tv5 = new System.Windows.Forms.TreeView();
-            this.tv6 = new System.Windows.Forms.TreeView();
-            this.tv7 = new System.Windows.Forms.TreeView();
-            this.tv8 = new System.Windows.Forms.TreeView();
-            this.tv9 = new System.Windows.Forms.TreeView();
-            this.tv10 = new System.Windows.Forms.TreeView();
-            this.tv11 = new System.Windows.Forms.TreeView();
             this.tv12 = new System.Windows.Forms.TreeView();
+            this.tv11 = new System.Windows.Forms.TreeView();
+            this.tv10 = new System.Windows.Forms.TreeView();
+            this.tv9 = new System.Windows.Forms.TreeView();
+            this.tv8 = new System.Windows.Forms.TreeView();
+            this.tv7 = new System.Windows.Forms.TreeView();
+            this.tv6 = new System.Windows.Forms.TreeView();
+            this.tv5 = new System.Windows.Forms.TreeView();
+            this.tv4 = new System.Windows.Forms.TreeView();
+            this.tvUrunIslemleri = new System.Windows.Forms.TreeView();
+            this.tvDepoIslemleri = new System.Windows.Forms.TreeView();
+            this.btnDepoIslemleri = new System.Windows.Forms.Button();
+            this.btnBilgiGiris = new System.Windows.Forms.Button();
+            this.pnlSolIcUst = new System.Windows.Forms.Panel();
+            this.lblBilgiEkrani = new System.Windows.Forms.Label();
             this.btnCollaps = new System.Windows.Forms.Button();
             this.btnSolMenuArama = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBilgiGiris = new System.Windows.Forms.Button();
-            this.btnDepoIslemleri = new System.Windows.Forms.Button();
+            this.txtSolMenuArama = new System.Windows.Forms.TextBox();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btnUrunIslemleri = new System.Windows.Forms.Button();
             this.tabUstMenu.SuspendLayout();
             this.tabPGenel.SuspendLayout();
             this.pnlSolMenu.SuspendLayout();
-            this.pnlSolIcUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcSolMenuOrta)).BeginInit();
             this.spcSolMenuOrta.Panel1.SuspendLayout();
             this.spcSolMenuOrta.Panel2.SuspendLayout();
             this.spcSolMenuOrta.SuspendLayout();
+            this.pnlSolIcUst.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabUstMenu
@@ -89,6 +90,16 @@ namespace IEA_ErpProject101_Main
             this.tabPGenel.TabIndex = 0;
             this.tabPGenel.Text = "Genel";
             this.tabPGenel.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.user;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(8, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 43);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // tabPYonetim
             // 
@@ -120,49 +131,6 @@ namespace IEA_ErpProject101_Main
             this.pnlSolMenu.Size = new System.Drawing.Size(250, 374);
             this.pnlSolMenu.TabIndex = 2;
             // 
-            // pnlSolIcUst
-            // 
-            this.pnlSolIcUst.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnlSolIcUst.Controls.Add(this.lblBilgiEkrani);
-            this.pnlSolIcUst.Controls.Add(this.btnCollaps);
-            this.pnlSolIcUst.Controls.Add(this.btnSolMenuArama);
-            this.pnlSolIcUst.Controls.Add(this.txtSolMenuArama);
-            this.pnlSolIcUst.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSolIcUst.Location = new System.Drawing.Point(0, 0);
-            this.pnlSolIcUst.Name = "pnlSolIcUst";
-            this.pnlSolIcUst.Size = new System.Drawing.Size(250, 44);
-            this.pnlSolIcUst.TabIndex = 0;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(250, 100);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 374);
-            this.splitter1.TabIndex = 3;
-            this.splitter1.TabStop = false;
-            // 
-            // txtSolMenuArama
-            // 
-            this.txtSolMenuArama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSolMenuArama.Location = new System.Drawing.Point(4, 2);
-            this.txtSolMenuArama.Name = "txtSolMenuArama";
-            this.txtSolMenuArama.Size = new System.Drawing.Size(221, 20);
-            this.txtSolMenuArama.TabIndex = 0;
-            // 
-            // lblBilgiEkrani
-            // 
-            this.lblBilgiEkrani.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBilgiEkrani.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblBilgiEkrani.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblBilgiEkrani.Location = new System.Drawing.Point(3, 25);
-            this.lblBilgiEkrani.Name = "lblBilgiEkrani";
-            this.lblBilgiEkrani.Size = new System.Drawing.Size(222, 18);
-            this.lblBilgiEkrani.TabIndex = 2;
-            this.lblBilgiEkrani.Text = "***";
-            this.lblBilgiEkrani.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // spcSolMenuOrta
             // 
             this.spcSolMenuOrta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -184,11 +152,12 @@ namespace IEA_ErpProject101_Main
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv6);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv5);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tv4);
-            this.spcSolMenuOrta.Panel1.Controls.Add(this.tv3);
+            this.spcSolMenuOrta.Panel1.Controls.Add(this.tvUrunIslemleri);
             this.spcSolMenuOrta.Panel1.Controls.Add(this.tvDepoIslemleri);
             // 
             // spcSolMenuOrta.Panel2
             // 
+            this.spcSolMenuOrta.Panel2.Controls.Add(this.btnUrunIslemleri);
             this.spcSolMenuOrta.Panel2.Controls.Add(this.btnDepoIslemleri);
             this.spcSolMenuOrta.Panel2.Controls.Add(this.btnBilgiGiris);
             this.spcSolMenuOrta.Size = new System.Drawing.Size(250, 330);
@@ -206,86 +175,14 @@ namespace IEA_ErpProject101_Main
             this.tvBilgiGirisIslemleri.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvBilgiGirisIslemleri_AfterSelect);
             this.tvBilgiGirisIslemleri.DoubleClick += new System.EventHandler(this.tvBilgiGirisIslemleri_DoubleClick);
             // 
-            // tvDepoIslemleri
+            // tv12
             // 
-            this.tvDepoIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvDepoIslemleri.Location = new System.Drawing.Point(0, 0);
-            this.tvDepoIslemleri.Name = "tvDepoIslemleri";
-            this.tvDepoIslemleri.Size = new System.Drawing.Size(246, 171);
-            this.tvDepoIslemleri.TabIndex = 1;
-            this.tvDepoIslemleri.Visible = false;
-            // 
-            // tv3
-            // 
-            this.tv3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv3.Location = new System.Drawing.Point(0, 0);
-            this.tv3.Name = "tv3";
-            this.tv3.Size = new System.Drawing.Size(246, 171);
-            this.tv3.TabIndex = 2;
-            this.tv3.Visible = false;
-            // 
-            // tv4
-            // 
-            this.tv4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv4.Location = new System.Drawing.Point(0, 0);
-            this.tv4.Name = "tv4";
-            this.tv4.Size = new System.Drawing.Size(246, 171);
-            this.tv4.TabIndex = 3;
-            this.tv4.Visible = false;
-            // 
-            // tv5
-            // 
-            this.tv5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv5.Location = new System.Drawing.Point(0, 0);
-            this.tv5.Name = "tv5";
-            this.tv5.Size = new System.Drawing.Size(246, 171);
-            this.tv5.TabIndex = 4;
-            this.tv5.Visible = false;
-            // 
-            // tv6
-            // 
-            this.tv6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv6.Location = new System.Drawing.Point(0, 0);
-            this.tv6.Name = "tv6";
-            this.tv6.Size = new System.Drawing.Size(246, 171);
-            this.tv6.TabIndex = 5;
-            this.tv6.Visible = false;
-            // 
-            // tv7
-            // 
-            this.tv7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv7.Location = new System.Drawing.Point(0, 0);
-            this.tv7.Name = "tv7";
-            this.tv7.Size = new System.Drawing.Size(246, 171);
-            this.tv7.TabIndex = 6;
-            this.tv7.Visible = false;
-            // 
-            // tv8
-            // 
-            this.tv8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv8.Location = new System.Drawing.Point(0, 0);
-            this.tv8.Name = "tv8";
-            this.tv8.Size = new System.Drawing.Size(246, 171);
-            this.tv8.TabIndex = 7;
-            this.tv8.Visible = false;
-            // 
-            // tv9
-            // 
-            this.tv9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv9.Location = new System.Drawing.Point(0, 0);
-            this.tv9.Name = "tv9";
-            this.tv9.Size = new System.Drawing.Size(246, 171);
-            this.tv9.TabIndex = 8;
-            this.tv9.Visible = false;
-            // 
-            // tv10
-            // 
-            this.tv10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv10.Location = new System.Drawing.Point(0, 0);
-            this.tv10.Name = "tv10";
-            this.tv10.Size = new System.Drawing.Size(246, 171);
-            this.tv10.TabIndex = 9;
-            this.tv10.Visible = false;
+            this.tv12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv12.Location = new System.Drawing.Point(0, 0);
+            this.tv12.Name = "tv12";
+            this.tv12.Size = new System.Drawing.Size(246, 171);
+            this.tv12.TabIndex = 11;
+            this.tv12.Visible = false;
             // 
             // tv11
             // 
@@ -296,14 +193,134 @@ namespace IEA_ErpProject101_Main
             this.tv11.TabIndex = 10;
             this.tv11.Visible = false;
             // 
-            // tv12
+            // tv10
             // 
-            this.tv12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv12.Location = new System.Drawing.Point(0, 0);
-            this.tv12.Name = "tv12";
-            this.tv12.Size = new System.Drawing.Size(246, 171);
-            this.tv12.TabIndex = 11;
-            this.tv12.Visible = false;
+            this.tv10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv10.Location = new System.Drawing.Point(0, 0);
+            this.tv10.Name = "tv10";
+            this.tv10.Size = new System.Drawing.Size(246, 171);
+            this.tv10.TabIndex = 9;
+            this.tv10.Visible = false;
+            // 
+            // tv9
+            // 
+            this.tv9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv9.Location = new System.Drawing.Point(0, 0);
+            this.tv9.Name = "tv9";
+            this.tv9.Size = new System.Drawing.Size(246, 171);
+            this.tv9.TabIndex = 8;
+            this.tv9.Visible = false;
+            // 
+            // tv8
+            // 
+            this.tv8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv8.Location = new System.Drawing.Point(0, 0);
+            this.tv8.Name = "tv8";
+            this.tv8.Size = new System.Drawing.Size(246, 171);
+            this.tv8.TabIndex = 7;
+            this.tv8.Visible = false;
+            // 
+            // tv7
+            // 
+            this.tv7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv7.Location = new System.Drawing.Point(0, 0);
+            this.tv7.Name = "tv7";
+            this.tv7.Size = new System.Drawing.Size(246, 171);
+            this.tv7.TabIndex = 6;
+            this.tv7.Visible = false;
+            // 
+            // tv6
+            // 
+            this.tv6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv6.Location = new System.Drawing.Point(0, 0);
+            this.tv6.Name = "tv6";
+            this.tv6.Size = new System.Drawing.Size(246, 171);
+            this.tv6.TabIndex = 5;
+            this.tv6.Visible = false;
+            // 
+            // tv5
+            // 
+            this.tv5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv5.Location = new System.Drawing.Point(0, 0);
+            this.tv5.Name = "tv5";
+            this.tv5.Size = new System.Drawing.Size(246, 171);
+            this.tv5.TabIndex = 4;
+            this.tv5.Visible = false;
+            // 
+            // tv4
+            // 
+            this.tv4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tv4.Location = new System.Drawing.Point(0, 0);
+            this.tv4.Name = "tv4";
+            this.tv4.Size = new System.Drawing.Size(246, 171);
+            this.tv4.TabIndex = 3;
+            this.tv4.Visible = false;
+            // 
+            // tvUrunIslemleri
+            // 
+            this.tvUrunIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvUrunIslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvUrunIslemleri.Name = "tvUrunIslemleri";
+            this.tvUrunIslemleri.Size = new System.Drawing.Size(246, 171);
+            this.tvUrunIslemleri.TabIndex = 2;
+            this.tvUrunIslemleri.Visible = false;
+            this.tvUrunIslemleri.DoubleClick += new System.EventHandler(this.tvUrunIslemleri_DoubleClick);
+            // 
+            // tvDepoIslemleri
+            // 
+            this.tvDepoIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvDepoIslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvDepoIslemleri.Name = "tvDepoIslemleri";
+            this.tvDepoIslemleri.Size = new System.Drawing.Size(246, 171);
+            this.tvDepoIslemleri.TabIndex = 1;
+            this.tvDepoIslemleri.Visible = false;
+            // 
+            // btnDepoIslemleri
+            // 
+            this.btnDepoIslemleri.Location = new System.Drawing.Point(85, 2);
+            this.btnDepoIslemleri.Name = "btnDepoIslemleri";
+            this.btnDepoIslemleri.Size = new System.Drawing.Size(69, 39);
+            this.btnDepoIslemleri.TabIndex = 1;
+            this.btnDepoIslemleri.Text = "Depo İşlemleri";
+            this.btnDepoIslemleri.UseVisualStyleBackColor = true;
+            this.btnDepoIslemleri.Click += new System.EventHandler(this.btnDepoIslemleri_Click);
+            // 
+            // btnBilgiGiris
+            // 
+            this.btnBilgiGiris.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBilgiGiris.Location = new System.Drawing.Point(10, 3);
+            this.btnBilgiGiris.Name = "btnBilgiGiris";
+            this.btnBilgiGiris.Size = new System.Drawing.Size(69, 36);
+            this.btnBilgiGiris.TabIndex = 0;
+            this.btnBilgiGiris.Text = "Bilgi Giriş İşlemleri";
+            this.btnBilgiGiris.UseVisualStyleBackColor = true;
+            this.btnBilgiGiris.Click += new System.EventHandler(this.btnBilgiGiris_Click);
+            // 
+            // pnlSolIcUst
+            // 
+            this.pnlSolIcUst.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlSolIcUst.Controls.Add(this.lblBilgiEkrani);
+            this.pnlSolIcUst.Controls.Add(this.btnCollaps);
+            this.pnlSolIcUst.Controls.Add(this.btnSolMenuArama);
+            this.pnlSolIcUst.Controls.Add(this.txtSolMenuArama);
+            this.pnlSolIcUst.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSolIcUst.Location = new System.Drawing.Point(0, 0);
+            this.pnlSolIcUst.Name = "pnlSolIcUst";
+            this.pnlSolIcUst.Size = new System.Drawing.Size(250, 44);
+            this.pnlSolIcUst.TabIndex = 0;
+            // 
+            // lblBilgiEkrani
+            // 
+            this.lblBilgiEkrani.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBilgiEkrani.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblBilgiEkrani.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBilgiEkrani.Location = new System.Drawing.Point(3, 25);
+            this.lblBilgiEkrani.Name = "lblBilgiEkrani";
+            this.lblBilgiEkrani.Size = new System.Drawing.Size(222, 18);
+            this.lblBilgiEkrani.TabIndex = 2;
+            this.lblBilgiEkrani.Text = "***";
+            this.lblBilgiEkrani.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnCollaps
             // 
@@ -327,36 +344,32 @@ namespace IEA_ErpProject101_Main
             this.btnSolMenuArama.TabIndex = 1;
             this.btnSolMenuArama.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // txtSolMenuArama
             // 
-            this.button1.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.user;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(8, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 43);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtSolMenuArama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSolMenuArama.Location = new System.Drawing.Point(4, 2);
+            this.txtSolMenuArama.Name = "txtSolMenuArama";
+            this.txtSolMenuArama.Size = new System.Drawing.Size(221, 20);
+            this.txtSolMenuArama.TabIndex = 0;
             // 
-            // btnBilgiGiris
+            // splitter1
             // 
-            this.btnBilgiGiris.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBilgiGiris.Location = new System.Drawing.Point(10, 3);
-            this.btnBilgiGiris.Name = "btnBilgiGiris";
-            this.btnBilgiGiris.Size = new System.Drawing.Size(69, 36);
-            this.btnBilgiGiris.TabIndex = 0;
-            this.btnBilgiGiris.Text = "Bilgi Giriş İşlemleri";
-            this.btnBilgiGiris.UseVisualStyleBackColor = true;
-            this.btnBilgiGiris.Click += new System.EventHandler(this.btnBilgiGiris_Click);
+            this.splitter1.Location = new System.Drawing.Point(250, 100);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 374);
+            this.splitter1.TabIndex = 3;
+            this.splitter1.TabStop = false;
             // 
-            // btnDepoIslemleri
+            // btnUrunIslemleri
             // 
-            this.btnDepoIslemleri.Location = new System.Drawing.Point(85, 2);
-            this.btnDepoIslemleri.Name = "btnDepoIslemleri";
-            this.btnDepoIslemleri.Size = new System.Drawing.Size(69, 39);
-            this.btnDepoIslemleri.TabIndex = 1;
-            this.btnDepoIslemleri.Text = "Depo İşlemleri";
-            this.btnDepoIslemleri.UseVisualStyleBackColor = true;
-            this.btnDepoIslemleri.Click += new System.EventHandler(this.btnDepoIslemleri_Click);
+            this.btnUrunIslemleri.Location = new System.Drawing.Point(160, 2);
+            this.btnUrunIslemleri.Name = "btnUrunIslemleri";
+            this.btnUrunIslemleri.Size = new System.Drawing.Size(69, 39);
+            this.btnUrunIslemleri.TabIndex = 2;
+            this.btnUrunIslemleri.Text = "Ürün İşlemleri";
+            this.btnUrunIslemleri.UseVisualStyleBackColor = true;
+            this.btnUrunIslemleri.Click += new System.EventHandler(this.btnUrunIslemleri_Click);
             // 
             // Home
             // 
@@ -375,12 +388,12 @@ namespace IEA_ErpProject101_Main
             this.tabUstMenu.ResumeLayout(false);
             this.tabPGenel.ResumeLayout(false);
             this.pnlSolMenu.ResumeLayout(false);
-            this.pnlSolIcUst.ResumeLayout(false);
-            this.pnlSolIcUst.PerformLayout();
             this.spcSolMenuOrta.Panel1.ResumeLayout(false);
             this.spcSolMenuOrta.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcSolMenuOrta)).EndInit();
             this.spcSolMenuOrta.ResumeLayout(false);
+            this.pnlSolIcUst.ResumeLayout(false);
+            this.pnlSolIcUst.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -403,7 +416,7 @@ namespace IEA_ErpProject101_Main
         private System.Windows.Forms.TreeView tv6;
         private System.Windows.Forms.TreeView tv5;
         private System.Windows.Forms.TreeView tv4;
-        private System.Windows.Forms.TreeView tv3;
+        private System.Windows.Forms.TreeView tvUrunIslemleri;
         private System.Windows.Forms.TreeView tvDepoIslemleri;
         private System.Windows.Forms.TreeView tvBilgiGirisIslemleri;
         private System.Windows.Forms.TreeView tv12;
@@ -414,6 +427,7 @@ namespace IEA_ErpProject101_Main
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBilgiGiris;
         private System.Windows.Forms.Button btnDepoIslemleri;
+        private System.Windows.Forms.Button btnUrunIslemleri;
     }
 }
 

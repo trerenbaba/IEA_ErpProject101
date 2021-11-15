@@ -199,6 +199,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             this.Controls.Add(this.pnlUst);
             this.Name = "frmPersonellerListesi";
             this.Text = "frmPersonellerListesi";
+            this.Load += new System.EventHandler(this.frmPersonellerListesi_Load);
             this.pnlUst.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);

@@ -103,6 +103,18 @@
     <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.Designer.cs">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="BilgiGirisIslemleri\Ürünler\frmUrunGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Ürünler\frmUrunGiris.Designer.cs">
+      <DependentUpon>frmUrunGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Ürünler\frmUrunlerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Ürünler\frmUrunlerListesi.Designer.cs">
+      <DependentUpon>frmUrunlerListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ErpProjectWMPModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,7 +145,11 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblUrunler.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Fonksiyonlar\DoktorUnvan.cs" />
+    <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
@@ -150,6 +166,12 @@
     <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.resx">
       <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Firma\frmFirmaGiris.resx">
+      <DependentUpon>frmFirmaGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Firma\frmFirmalarListesi.resx">
+      <DependentUpon>frmFirmalarListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGiris.resx">
       <DependentUpon>frmHastaneGiris.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +183,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.resx">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Ürünler\frmUrunGiris.resx">
+      <DependentUpon>frmUrunGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Ürünler\frmUrunlerListesi.resx">
+      <DependentUpon>frmUrunlerListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

@@ -16,5 +16,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             InitializeComponent();
         }
+
+        private void frmPersonellerListesi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

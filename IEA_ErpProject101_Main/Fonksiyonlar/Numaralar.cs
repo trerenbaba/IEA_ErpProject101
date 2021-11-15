@@ -11,13 +11,14 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
     {
         private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
 
+        #region Cari İşlemler
         public string CariKoduHastane()
         {
             try
             {
                 var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id;
                 numara++;
-                string num ="H"+ numara.ToString().PadLeft(8, '0');
+                string num = "H" + numara.ToString().PadLeft(8, '0');
                 return num;
             }
             catch (Exception)
@@ -31,7 +32,7 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
             {
                 var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id;
                 numara++;
-                string num ="D"+ numara.ToString().PadLeft(8, '0');
+                string num = "D" + numara.ToString().PadLeft(8, '0');
                 return num;
             }
             catch (Exception)
@@ -39,5 +40,36 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
                 return "00000001";
             }
         }
+        public string CariKoduFirma()
+        {
+            try
+            {
+                var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "F" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "F00000001";
+            }
+        }
+        #endregion
+
+        public string UrunGenelKodu()
+        {
+            try
+            {
+                var numara = (from s in erp.tblUrunler orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "U" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "U00000001";
+            }
+        }
+
     }
 }

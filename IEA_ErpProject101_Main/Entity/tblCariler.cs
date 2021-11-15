@@ -18,9 +18,11 @@ namespace IEA_ErpProject101_Main.Entity
         public tblCariler()
         {
             this.tblPersonelDetay = new HashSet<tblPersonelDetay>();
+            this.tblUrunler = new HashSet<tblUrunler>();
         }
     
         public int Id { get; set; }
+        public string CariNo { get; set; }
         public Nullable<int> CariGroupId { get; set; }
         public Nullable<int> CariTipId { get; set; }
         public string CariAdi { get; set; }
@@ -38,12 +40,12 @@ namespace IEA_ErpProject101_Main.Entity
         public string YetkiliDepartmani1 { get; set; }
         public string YetkiliDepartmani2 { get; set; }
         public string YetkiliDepartmani3 { get; set; }
-        public string YetkiliCep1 { get; set; }
-        public string YetkiliCep2 { get; set; }
-        public string YetkiliCep3 { get; set; }
         public string YetkiliTel1 { get; set; }
         public string YetkiliTel2 { get; set; }
         public string YetkiliTel3 { get; set; }
+        public string YetkiliCep1 { get; set; }
+        public string YetkiliCep2 { get; set; }
+        public string YetkiliCep3 { get; set; }
         public string YetkiliMail1 { get; set; }
         public string YetkiliMail2 { get; set; }
         public string YetkiliMail3 { get; set; }
@@ -52,11 +54,12 @@ namespace IEA_ErpProject101_Main.Entity
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public Nullable<bool> isActive { get; set; }
-        public string CariNo { get; set; }
     
         public virtual tblCariGruplari tblCariGruplari { get; set; }
         public virtual tblSehirler tblSehirler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblPersonelDetay> tblPersonelDetay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblUrunler> tblUrunler { get; set; }
     }
 }
