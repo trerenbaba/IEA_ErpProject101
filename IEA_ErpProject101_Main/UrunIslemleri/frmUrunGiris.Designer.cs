@@ -36,11 +36,11 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.label14 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtFMail = new System.Windows.Forms.TextBox();
-            this.txtFAdres2 = new System.Windows.Forms.TextBox();
-            this.txtFAdres1 = new System.Windows.Forms.TextBox();
+            this.txtUAlis = new System.Windows.Forms.TextBox();
+            this.txtUKutuIcerik = new System.Windows.Forms.TextBox();
+            this.txtUAciklama = new System.Windows.Forms.TextBox();
             this.lblFirmaKodu = new System.Windows.Forms.Label();
-            this.txtFAdi = new System.Windows.Forms.TextBox();
+            this.txtUKodu = new System.Windows.Forms.TextBox();
             this.txtUrunTedarikciId = new System.Windows.Forms.ComboBox();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.btnKayit = new System.Windows.Forms.Button();
@@ -49,18 +49,18 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.btnSil = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
             this.pnlOrta = new System.Windows.Forms.Panel();
-            this.Liste = new System.Windows.Forms.DataGridView();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtUAdi = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtUSatis = new System.Windows.Forms.TextBox();
+            this.Liste = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.pnlUst.SuspendLayout();
             this.pnlOrta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
@@ -132,28 +132,28 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.label4.Text = "Urun Aciklama :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtFMail
+            // txtUAlis
             // 
-            this.txtFMail.Location = new System.Drawing.Point(120, 158);
-            this.txtFMail.Name = "txtFMail";
-            this.txtFMail.Size = new System.Drawing.Size(160, 22);
-            this.txtFMail.TabIndex = 3;
+            this.txtUAlis.Location = new System.Drawing.Point(120, 158);
+            this.txtUAlis.Name = "txtUAlis";
+            this.txtUAlis.Size = new System.Drawing.Size(160, 22);
+            this.txtUAlis.TabIndex = 3;
             // 
-            // txtFAdres2
+            // txtUKutuIcerik
             // 
-            this.txtFAdres2.Location = new System.Drawing.Point(509, 71);
-            this.txtFAdres2.Multiline = true;
-            this.txtFAdres2.Name = "txtFAdres2";
-            this.txtFAdres2.Size = new System.Drawing.Size(408, 46);
-            this.txtFAdres2.TabIndex = 5;
+            this.txtUKutuIcerik.Location = new System.Drawing.Point(509, 71);
+            this.txtUKutuIcerik.Multiline = true;
+            this.txtUKutuIcerik.Name = "txtUKutuIcerik";
+            this.txtUKutuIcerik.Size = new System.Drawing.Size(408, 46);
+            this.txtUKutuIcerik.TabIndex = 5;
             // 
-            // txtFAdres1
+            // txtUAciklama
             // 
-            this.txtFAdres1.Location = new System.Drawing.Point(509, 13);
-            this.txtFAdres1.Multiline = true;
-            this.txtFAdres1.Name = "txtFAdres1";
-            this.txtFAdres1.Size = new System.Drawing.Size(408, 47);
-            this.txtFAdres1.TabIndex = 4;
+            this.txtUAciklama.Location = new System.Drawing.Point(509, 13);
+            this.txtUAciklama.Multiline = true;
+            this.txtUAciklama.Name = "txtUAciklama";
+            this.txtUAciklama.Size = new System.Drawing.Size(408, 47);
+            this.txtUAciklama.TabIndex = 4;
             // 
             // lblFirmaKodu
             // 
@@ -166,12 +166,12 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.lblFirmaKodu.Text = "***";
             this.lblFirmaKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtFAdi
+            // txtUKodu
             // 
-            this.txtFAdi.Location = new System.Drawing.Point(120, 82);
-            this.txtFAdi.Name = "txtFAdi";
-            this.txtFAdi.Size = new System.Drawing.Size(227, 22);
-            this.txtFAdi.TabIndex = 0;
+            this.txtUKodu.Location = new System.Drawing.Point(120, 82);
+            this.txtUKodu.Name = "txtUKodu";
+            this.txtUKodu.Size = new System.Drawing.Size(227, 22);
+            this.txtUKodu.TabIndex = 0;
             // 
             // txtUrunTedarikciId
             // 
@@ -251,7 +251,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             // 
             this.pnlOrta.AutoScroll = true;
             this.pnlOrta.Controls.Add(this.label8);
-            this.pnlOrta.Controls.Add(this.textBox1);
+            this.pnlOrta.Controls.Add(this.txtUAdi);
             this.pnlOrta.Controls.Add(this.label2);
             this.pnlOrta.Controls.Add(this.txtKayitBul);
             this.pnlOrta.Controls.Add(this.label1);
@@ -260,17 +260,61 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.pnlOrta.Controls.Add(this.label14);
             this.pnlOrta.Controls.Add(this.label7);
             this.pnlOrta.Controls.Add(this.label4);
-            this.pnlOrta.Controls.Add(this.textBox2);
-            this.pnlOrta.Controls.Add(this.txtFMail);
-            this.pnlOrta.Controls.Add(this.txtFAdres2);
-            this.pnlOrta.Controls.Add(this.txtFAdres1);
-            this.pnlOrta.Controls.Add(this.txtFAdi);
+            this.pnlOrta.Controls.Add(this.txtUSatis);
+            this.pnlOrta.Controls.Add(this.txtUAlis);
+            this.pnlOrta.Controls.Add(this.txtUKutuIcerik);
+            this.pnlOrta.Controls.Add(this.txtUAciklama);
+            this.pnlOrta.Controls.Add(this.txtUKodu);
             this.pnlOrta.Controls.Add(this.txtUrunTedarikciId);
             this.pnlOrta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOrta.Location = new System.Drawing.Point(0, 58);
             this.pnlOrta.Name = "pnlOrta";
             this.pnlOrta.Size = new System.Drawing.Size(960, 312);
             this.pnlOrta.TabIndex = 40;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label8.Location = new System.Drawing.Point(14, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "Urun Adi :";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtUAdi
+            // 
+            this.txtUAdi.Location = new System.Drawing.Point(120, 120);
+            this.txtUAdi.Name = "txtUAdi";
+            this.txtUAdi.Size = new System.Drawing.Size(227, 22);
+            this.txtUAdi.TabIndex = 51;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label2.Location = new System.Drawing.Point(14, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Genel No :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label11.Location = new System.Drawing.Point(14, 196);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 23);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Satis Fiyati :";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtUSatis
+            // 
+            this.txtUSatis.Location = new System.Drawing.Point(120, 197);
+            this.txtUSatis.Name = "txtUSatis";
+            this.txtUSatis.Size = new System.Drawing.Size(160, 22);
+            this.txtUSatis.TabIndex = 3;
             // 
             // Liste
             // 
@@ -288,61 +332,6 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(960, 182);
             this.Liste.TabIndex = 38;
-            // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.splitter1.Cursor = System.Windows.Forms.Cursors.HSplit;
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 370);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(960, 10);
-            this.splitter1.TabIndex = 39;
-            this.splitter1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(14, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Genel No :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label8.Location = new System.Drawing.Point(14, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 23);
-            this.label8.TabIndex = 52;
-            this.label8.Text = "Urun Adi :";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(120, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 22);
-            this.textBox1.TabIndex = 51;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(120, 197);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label11.Location = new System.Drawing.Point(14, 196);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 23);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Satis Fiyati :";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Id
             // 
@@ -382,6 +371,17 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             this.UrunAdi.MinimumWidth = 6;
             this.UrunAdi.Name = "UrunAdi";
             // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.splitter1.Cursor = System.Windows.Forms.Cursors.HSplit;
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter1.Location = new System.Drawing.Point(0, 370);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(960, 10);
+            this.splitter1.TabIndex = 39;
+            this.splitter1.TabStop = false;
+            // 
             // frmUrunGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -411,11 +411,11 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtFMail;
-        private System.Windows.Forms.TextBox txtFAdres2;
-        private System.Windows.Forms.TextBox txtFAdres1;
+        private System.Windows.Forms.TextBox txtUAlis;
+        private System.Windows.Forms.TextBox txtUKutuIcerik;
+        private System.Windows.Forms.TextBox txtUAciklama;
         private System.Windows.Forms.Label lblFirmaKodu;
-        private System.Windows.Forms.TextBox txtFAdi;
+        private System.Windows.Forms.TextBox txtUKodu;
         private System.Windows.Forms.ComboBox txtUrunTedarikciId;
         private System.Windows.Forms.Panel pnlUst;
         private System.Windows.Forms.Button btnKayit;
@@ -428,9 +428,9 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
         private System.Windows.Forms.DataGridView Liste;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUAdi;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtUSatis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sira;
         private System.Windows.Forms.DataGridViewTextBoxColumn GenelNo;

@@ -63,5 +63,111 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             txtUrunTedarikciId.DisplayMember = "CariAdi";
             txtUrunTedarikciId.SelectedIndex = -1;
         }
+
+        private void YeniKayit()
+        {
+            if (secimId!=-1 || txtUKodu.Text=="")
+            {
+                return;
+            }
+            try
+            {
+                tblUrunler urn = new tblUrunler();
+                urn.UrunAdi = txtUAdi.Text;
+                urn.TedarikciFirmaId = (int)txtUrunTedarikciId.SelectedValue;
+                urn.UrunKodu = txtUKodu.Text;
+                urn.AlisFiyat = decimal.Parse(txtUAlis.Text);
+                urn.SatisFiyat = decimal.Parse(txtUSatis.Text);
+                urn.KutuIcerik = txtUKutuIcerik.Text;
+                urn.UrunGenelNo = txtKayitBul.Text;
+                urn.UrunAciklama = txtUAciklama.Text;
+                urn.SaveDate = DateTime.Now;
+                urn.SaveUserId = 1;
+                urn.isActive = true;
+
+                erp.tblUrunler.Add(urn);
+                erp.SaveChanges();
+
+                MessageBox.Show("Kayit basarili");
+
+                Temizle();
+                Listele();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        private void Temizle()
+        {
+            foreach (Control k in pnlOrta.Controls)
+            {
+                if (k is TextBox || k is ComboBox || k is MaskedTextBox)
+                {
+                    k.Text = "";
+                }
+            }
+
+            secimId = -1;
+        }
+
+         private tblUrunler urunler;
+        private void Ac(int id)
+        {
+            urunler= erp.tblUrunler.Find(secimId);
+            secimId = id;
+            try
+            {
+                tblUrunler urn = urunler;
+                txtUrunTedarikciId.Text = urn.tblCariler.CariAdi;
+                txtKayitBul.Text = urn.UrunGenelNo;
+                txtUKodu.Text = urn.UrunKodu;
+                txtUAciklama.Text = urn.UrunAciklama;
+                txtUAdi.Text = urn.UrunAdi;
+                txtUAlis.Text = urn.AlisFiyat.ToString();
+                txtUSatis.Text = urn.SatisFiyat.ToString();
+                txtUKutuIcerik.Text = urn.KutuIcerik;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void Guncelle()
+        {
+            if (secimId == -1)
+            {
+                return;
+            }
+            try
+            {
+                tblUrunler urn = urunler;
+                urn.UrunAdi = txtUAdi.Text;
+                urn.TedarikciFirmaId = (int)txtUrunTedarikciId.SelectedValue;
+                urn.UrunKodu = txtUKodu.Text;
+                urn.AlisFiyat = decimal.Parse(txtUAlis.Text);
+                urn.SatisFiyat = decimal.Parse(txtUSatis.Text);
+                urn.KutuIcerik = txtUKutuIcerik.Text;
+                urn.UrunGenelNo = txtKayitBul.Text;
+                urn.UrunAciklama = txtUAciklama.Text;
+                urn.UpdateDate = DateTime.Now;
+                urn.UpdateUserId = 1;
+
+                erp.SaveChanges();
+
+                MessageBox.Show("Guncelleme basarili");
+
+                Temizle();
+                Listele();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
     }
 }

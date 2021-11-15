@@ -244,6 +244,7 @@
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
     <Content Include="OdevDosyasi.txt" />
+    <Content Include="SQLYedek\Yedek151121.sql" />
     <None Include="Resources\arrow-1176.bmp" />
     <None Include="Images\Sil64.png" />
     <None Include="Images\Sil24x24.png" />
