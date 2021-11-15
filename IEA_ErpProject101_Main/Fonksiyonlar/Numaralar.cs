@@ -10,6 +10,8 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
     class Numaralar
     {
         private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+
+        #region Cari Islemleri
         public string CariKoduHastane()
         {
             try
@@ -67,6 +69,22 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
             catch (Exception)
             {
                 return "F00000001";
+            }
+        }
+        #endregion
+
+        public string UrunGenelKodu()
+        {
+            try
+            {
+                var numara = (from s in erp.tblUrunler orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "U" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "U00000001";
             }
         }
     }
