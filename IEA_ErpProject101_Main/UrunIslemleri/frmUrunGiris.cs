@@ -55,7 +55,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
 
         private void ComboDoldur()
         {
-            txtUrunTedarikciId.DataSource= Enum.GetValues(typeof(enumFirmaTipi));
+            txtUrunTedarikciId.DataSource= Enum.GetValues(typeof(enumFirmaTipi)); 
 
         }
     }
