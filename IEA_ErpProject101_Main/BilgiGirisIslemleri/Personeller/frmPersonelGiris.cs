@@ -205,10 +205,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         public void Ac(int id)
         {
             secimId = id;//dis formdan veri gelirse secimId hatasi almamak icin bu islemi yaptim
+            Home.tblPersonelDetayId= erp.tblPersonelDetay.Find(id);
             try
             {
                 txtDurum.Visible = true;
-                tblPersonelDetay hst = erp.tblPersonelDetay.Find(id);
+                tblPersonelDetay hst = Home.tblPersonelDetayId;
                 txtPAdi.Text = hst.tblCariler.CariAdi;
                 txtPMail.Text = hst.tblCariler.CariMail;
                 txtPTel.Text = hst.tblCariler.CariTel;
@@ -271,7 +272,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             if (secimId > 0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                Home.tblCarilerId = erp.tblCariler.Find(secimId);
+                tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
                 erp.SaveChanges();
                 MessageBox.Show("Silme basarili");

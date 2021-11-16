@@ -27,8 +27,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         }
 
         private void frmFirmaGiris_Load(object sender, EventArgs e)
-        {
-            ComboDoldur();
+        {           
             ComboDoldur();
             Listele();
         }
