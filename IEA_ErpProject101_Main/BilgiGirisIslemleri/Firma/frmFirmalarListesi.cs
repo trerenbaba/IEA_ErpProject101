@@ -19,6 +19,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         private Numaralar n = new Numaralar();
 
         public int secimId = -1;
+
+        public bool Secim = false;
         public frmFirmalarListesi()
         {
             InitializeComponent();
@@ -71,10 +73,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             if (secimId > 0 && Application.OpenForms["frmFirmaGiris"] == null)
             {
 
-                frmFirmaGiris frm = new frmFirmaGiris();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmFirmaGiris frm = new frmFirmaGiris();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmFirmaGiris"] != null)

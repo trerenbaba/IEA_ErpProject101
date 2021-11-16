@@ -174,7 +174,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             }
             try
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = Home.tblCarilerId;
                 hst.CariAdi = txtFAdi.Text;
                 hst.CariMail = txtFMail.Text;
                 hst.CariTel = txtFTel.Text;
@@ -240,9 +240,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         public void Ac(int id)
         {
             secimId = id;//dis formdan veri gelirse secimId hatasi almamak icin bu islemi yaptim
+            Home.tblCarilerId = erp.tblCariler.Find(id);
             try
             {
-                tblCariler hst = erp.tblCariler.Find(id);
+                tblCariler hst = Home.tblCarilerId;
                 txtFAdi.Text = hst.CariAdi;
                 txtFMail.Text = hst.CariMail;
                 txtFTel.Text = hst.CariTel;
@@ -311,7 +312,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
         {
             if (secimId > 0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
                 erp.SaveChanges();
                 MessageBox.Show("Silme basarili");

@@ -19,6 +19,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         private Numaralar n = new Numaralar();
 
         public int secimId = -1;
+        public bool Secim = false;
         public frmDoktorlarListesi()
         {
             InitializeComponent();
@@ -66,13 +67,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
 
-            if (secimId > 0 && Application.OpenForms["frmDoktorGiris"] == null)
+            if (secimId > 0&&Secim && Application.OpenForms["frmDoktorGiris"] == null)
             {
 
-                frmDoktorGiris frm = new frmDoktorGiris();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmDoktorGiris frm = new frmDoktorGiris();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmDoktorGiris"] != null)

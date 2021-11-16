@@ -20,6 +20,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         private Numaralar n = new Numaralar();
 
         public int secimId = -1;
+
+        public bool Secim = false;
         public frmPersonellerListesi()
         {
             InitializeComponent();
@@ -61,13 +63,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
 
-            if (secimId > 0 && Application.OpenForms["frmPersonelGiris"] == null)
+            if (secimId > 0&& Secim && Application.OpenForms["frmPersonelGiris"] == null)
             {
 
-                frmPersonelGiris frm = new frmPersonelGiris();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmPersonelGiris frm = new frmPersonelGiris();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmPersonelGiris"] != null)
