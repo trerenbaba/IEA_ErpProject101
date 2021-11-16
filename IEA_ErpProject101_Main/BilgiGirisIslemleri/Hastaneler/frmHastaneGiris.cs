@@ -183,7 +183,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             try
             {
                 
-                    tblCariler hst = erp.tblCariler.Find(secimId);
+                    tblCariler hst = Home.tblCarilerId;
                     hst.isActive = true;
                     hst.CariAdi = txtHastaneAdi.Text;
                     hst.CariMail = txtHastaneMail.Text;
@@ -232,7 +232,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         {
             if (secimId>0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
+                tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
                 erp.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
@@ -267,9 +267,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         public void Ac(int id)
         {
             secimId = id; //dış formdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
+            Home.tblCarilerId= erp.tblCariler.Find(id);
             try
             {
-                tblCariler hst = erp.tblCariler.Find(id);
+                tblCariler hst = Home.tblCarilerId;
                 hst.isActive = true;
                 txtHastaneAdi.Text = hst.CariAdi;
                 txtHastaneMail.Text = hst.CariMail;

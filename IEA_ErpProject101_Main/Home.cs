@@ -1,9 +1,12 @@
 ﻿using IEA_ErpProject101_Main.BilgiGirisIslemleri;
+using IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler;
+using IEA_ErpProject101_Main.Entity;
+using IEA_ErpProject101_Main.Fonksiyonlar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +21,11 @@ namespace IEA_ErpProject101_Main
 {
     public partial class Home : Form
     {
+        internal static tblCariler tblCarilerId = null;
+        internal static tblPersonelDetay tblPersonelDetayId = null;
+        private formlar f = new formlar();
+
+        internal static int Aktarma = -1;
         public Home()
         {
             InitializeComponent();
@@ -41,7 +49,7 @@ namespace IEA_ErpProject101_Main
             tvBilgiGirisIslemleri.Nodes.Add("Firmalar");
             tvBilgiGirisIslemleri.Nodes[2].Nodes.Add("Firma Bilgi Giriş");
             tvBilgiGirisIslemleri.Nodes[2].Nodes.Add("Firmalar Listesi");
-            
+
             tvBilgiGirisIslemleri.Nodes.Add("Personeller");
             tvBilgiGirisIslemleri.Nodes[3].Nodes.Add("Personel Bilgi Giriş");
             tvBilgiGirisIslemleri.Nodes[3].Nodes.Add("Personeller Listesi");
@@ -50,6 +58,9 @@ namespace IEA_ErpProject101_Main
             #region Depo İşlemleri Menüsü
             tvDepoIslemleri.Nodes.Add("Depo İşlemleri");
             tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Durum");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Giriş");
+            tvDepoIslemleri.Nodes[0].Nodes[1].Nodes.Add("Stok Giriş");
+            tvDepoIslemleri.Nodes[0].Nodes[1].Nodes.Add("Stok Listesi");
             tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat Listesi");
             #endregion
 
@@ -108,13 +119,14 @@ namespace IEA_ErpProject101_Main
 
             if (isim == "Hastaneler Listesi" && Application.OpenForms["frmHastanelerListesi"] is null) //kontrol == false
             {
-                frmHastanelerListesi frm = new frmHastanelerListesi();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Activate();
-                //kontrol = true;
+                //frmHastanelerListesi frm = new frmHastanelerListesi();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Activate();
+                f.HastaneListesi();
+               
             }
-            else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] is null)  //kontrol==false
+            else if (isim == "Hastane Bilgi Giriş" && Application.OpenForms["frmHastaneGiris"] is null) 
             {
                 frmHastaneGiris frm = new frmHastaneGiris();
                 frm.MdiParent = Home.ActiveForm;
@@ -182,6 +194,19 @@ namespace IEA_ErpProject101_Main
             else if (isim == "Urun Giris" && Application.OpenForms["frmUrunGiris"] is null) //kontrol == false
             {
                 frmUrunGiris frm = new frmUrunGiris();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Activate();
+                //kontrol = true;
+            }
+        }
+
+        private void tvDepoIslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = tvDepoIslemleri.SelectedNode != null ? tvDepoIslemleri.SelectedNode.Text : "";
+            if (isim == "Stok Giriş" && Application.OpenForms["frmStokGiris"] is null) //kontrol == false
+            {
+                frmStokGiris frm = new frmStokGiris();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
                 frm.Activate();

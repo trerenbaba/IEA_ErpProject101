@@ -54,6 +54,20 @@ namespace IEA_ErpProject101_Main.Fonksiyonlar
                 return "F00000001";
             }
         }
+        public string CariKoduPersonel()
+        {
+            try
+            {
+                var numara = (from s in erp.tblCariler orderby s.Id descending select s).First().Id;
+                numara++;
+                string num = "P" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "P00000001";
+            }
+        }
         #endregion
 
         public string UrunGenelKodu()

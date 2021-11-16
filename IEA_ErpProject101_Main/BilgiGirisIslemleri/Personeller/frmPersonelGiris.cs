@@ -17,7 +17,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
     public partial class frmPersonelGiris : Form
     {
         private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+
         private Numaralar n = new Numaralar();
+
         public int secimId = -1;
 
         public frmPersonelGiris()
@@ -34,14 +36,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         private void Listele()
         {
             Liste.Rows.Clear();
-            int i = 0;
-            int sira = 1;
+            int i = 0, sira = 1;
             var lst = (from s in erp.tblPersonelDetay
                        where s.tblCariler.isActive == true
                        where s.tblCariler.CariGroupId == 6
                        select s).ToList();
-                      
-
             foreach (var k in lst)
             {
                 Liste.Rows.Add();
@@ -57,22 +56,24 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
                 i++;
                 sira++;
             }
+
             Liste.AllowUserToAddRows = false;
-            lblPersonelKodu.Text = n.CariKoduHastane();
+            lblPersonelKodu.Text = n.CariKoduPersonel();
         }
 
         private void ComboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 6).ToList();
-            var lst3 = erp.tblSehirler.ToList();
-
             txtPUnvan.DataSource = Enum.GetValues(typeof(enumPersonelUnvan));
+            txtPUnvan.SelectedIndex = -1;
 
-            txtDepartman.DataSource = lst;
-            txtDepartman.ValueMember = "Id";
-            txtDepartman.DisplayMember = "DepartmanAdi";
-            txtDepartman.SelectedIndex = -1;
+            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 6).ToList();
 
+            txtPDepartman.DataSource = lst;
+            txtPDepartman.ValueMember = "Id";
+            txtPDepartman.DisplayMember = "DepartmanAdi";
+            txtPDepartman.SelectedIndex = -1;
+
+            var lst3 = erp.tblSehirler.ToList();
             txtSehir.DataSource = lst3;
             txtSehir.ValueMember = "id";
             txtSehir.DisplayMember = "Sehir";
@@ -82,8 +83,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 
         private void YeniKayit()
         {
-            string pkodu = n.CariKoduHastane();
-
+            string pkodu = n.CariKoduPersonel();
             try
             {
                 if (secimId == -1)
@@ -93,35 +93,43 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
                     hst.CariAdi = txtPAdi.Text;
                     hst.CariMail = txtPMail.Text;
                     hst.CariTel = txtPTel.Text;
-                    hst.YetkiliCep1 = txtPCep.Text;
-                    hst.YetkiliDepartmani1 = txtDepartman.Text;             
-                    hst.Adres1 = txtPAdres.Text;
+                    hst.YetkiliDepartmani1 = txtPDepartman.Text;
+                    hst.YetkiliCep1 = txtPCep1.Text;
+                    hst.Adres1 = txtPAdres1.Text;
                     hst.Adres2 = txtPAdres2.Text;
-                    hst.CariGroupId = 6; 
-                    hst.CariTipId = 1; //formda combobox olarak değiştir...
-                    hst.CariUnvan = txtPUnvan.Text;                    
-                    hst.Tc_Vn = txtTc.Text;
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
+                    hst.CariGroupId = 6;
+                    hst.CariTipId = 1;
+                    hst.CariUnvan = txtPUnvan.Text;
+
+                    hst.Tc_Vn = txtVnTc.Text;
+                    if (txtSehir.Text != "")
+                    {
+                        hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                    }
+
                     hst.SaveUserId = 1;
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = pkodu;
+
                     erp.tblCariler.Add(hst);
                     erp.SaveChanges();
 
                     tblPersonelDetay pdet = new tblPersonelDetay();
-                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi == txtPAdi.Text).Id;
-                    pdet.IsBasiTarih = txtIsBasi.Value;
-                   // pdet.IsSonuTarih = txtIsSonu.Value;
-                    erp.tblPersonelDetay.Add(pdet);
 
+                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi == txtPAdi.Text).Id;
+                    pdet.IsBasiTarih = txtBaslangic.Value;
+                    //pdet.IsSonuTarih = txtBitis.Value;
+
+                    erp.tblPersonelDetay.Add(pdet);
                     erp.SaveChanges();
-                    MessageBox.Show("Kayıt başarılı...");
+
+                    MessageBox.Show("Kayit basarili");
                     Temizle();
                     Listele();
                 }
                 else
                 {
-                    MessageBox.Show("Bu kayıt daha önce yapılmıştır. Kendine başka kayıt bul ...");
+                    MessageBox.Show("Bu kayit daha once yapilmis. Kendine baska kayit bul...");
                 }
 
             }
@@ -134,43 +142,42 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 
         private void Guncelle()
         {
-            if (secimId<0)
+            if (secimId < 0)
             {
                 return;
             }
             try
             {
+                tblPersonelDetay hst = erp.tblPersonelDetay.First(x => x.Id == secimId);
+                hst.tblCariler.CariAdi = txtPAdi.Text;
+                hst.tblCariler.CariMail = txtPMail.Text;
+                hst.tblCariler.CariTel = txtPTel.Text;
+                hst.tblCariler.YetkiliDepartmani1 = txtPDepartman.Text;
+                hst.tblCariler.YetkiliCep1 = txtPCep1.Text;
+                hst.tblCariler.Adres1 = txtPAdres1.Text;
+                hst.tblCariler.Adres2 = txtPAdres2.Text;
+                hst.tblCariler.CariTipId = 1;
+                hst.tblCariler.CariUnvan = txtPUnvan.Text;
 
-                tblCariler prs = erp.tblCariler.Find(secimId);
-                prs.isActive = true;
-                prs.CariAdi = txtPAdi.Text;
-                prs.CariMail = txtPMail.Text;
-                prs.CariTel = txtPTel.Text;
-                prs.YetkiliCep1 = txtPCep.Text;
-                prs.YetkiliDepartmani1 = txtDepartman.Text;
-               
-                
-                prs.Adres1 = txtPAdres.Text;
-                prs.Adres2 = txtPAdres2.Text;
-
-                prs.CariTipId = 1; //formda combobox olarak değiştir...
-                prs.CariUnvan = txtPUnvan.Text;
-               
-                prs.Tc_Vn = txtTc.Text;
-                prs.SehirId = (int?)txtSehir.SelectedValue ?? -1; //erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
-                prs.UpdateUserId = 1;
-                prs.UpdateDate = DateTime.Now;
+                hst.tblCariler.Tc_Vn = txtVnTc.Text;
+                hst.tblCariler.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                hst.tblCariler.UpdateUserId = 1;
+                hst.tblCariler.UpdateDate = DateTime.Now;
+                hst.IsBasiTarih = txtBaslangic.Value;
+                if (txtDurum.Checked)
+                {
+                    hst.IsSonuTarih = txtBitis.Value;
+                }
 
 
                 erp.SaveChanges();
-                MessageBox.Show("Güncelleme başarılı...");
+
+                MessageBox.Show("Guncelleme basarili");
                 Temizle();
                 Listele();
-
             }
             catch (Exception e)
             {
-
                 MessageBox.Show(e.Message);
             }
         }
@@ -185,60 +192,65 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
                     k.Text = "";
                 }
             }
+
             secimId = -1;
+            txtDurum.Visible = false;
+            label6.Visible = false;
+            txtBitis.Visible = false;
+            txtBitis.Text = "";
         }
 
 
 
         public void Ac(int id)
         {
-            secimId = id; //dış formdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
+            secimId = id;//dis formdan veri gelirse secimId hatasi almamak icin bu islemi yaptim
             try
             {
+                txtDurum.Visible = true;
                 tblPersonelDetay hst = erp.tblPersonelDetay.Find(id);
                 txtPAdi.Text = hst.tblCariler.CariAdi;
                 txtPMail.Text = hst.tblCariler.CariMail;
                 txtPTel.Text = hst.tblCariler.CariTel;
-                txtDepartman.Text = hst.tblCariler.YetkiliDepartmani1;
-                txtPCep.Text = hst.tblCariler.YetkiliCep1;
-                txtPAdres.Text = hst.tblCariler.Adres1;
+                txtPDepartman.Text = hst.tblCariler.YetkiliDepartmani1;
+                txtPCep1.Text = hst.tblCariler.YetkiliCep1;
+                txtPAdres1.Text = hst.tblCariler.Adres1;
                 txtPAdres2.Text = hst.tblCariler.Adres2;
                 txtPUnvan.Text = hst.tblCariler.CariUnvan;
-                txtTc.Text = hst.tblCariler.Tc_Vn;
+
+                txtVnTc.Text = hst.tblCariler.Tc_Vn;
                 txtSehir.Text = hst.tblCariler.tblSehirler == null ? "" : hst.tblCariler.tblSehirler.sehir;
                 lblPersonelKodu.Text = hst.tblCariler.CariNo;
                 txtKayitBul.Text = hst.tblCariler.CariNo;
+                txtBaslangic.Text = hst.IsBasiTarih.ToString();
+                txtBitis.Text = hst.IsSonuTarih.ToString();
 
-                txtIsBasi.Text = hst.IsBasiTarih.ToString();
-                txtIsSonu.Text = hst.IsSonuTarih.ToString();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                MessageBox.Show(e.Message);
             }
         }
 
-        [DllImport("user32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
         protected override void OnLoad(EventArgs e)
         {
             var btn = new Button();
-            btn.Size = new Size(25, txtKayitBul.ClientSize.Height);
-            btn.Location = new Point(txtKayitBul.ClientSize.Width - btn.Width);
+            btn.Size = new Size(25, txtKayitBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtKayitBul.ClientSize.Width - btn.Width - 1);
             btn.Cursor = Cursors.Default;
             btn.Image = Resources.arrow_1176;
             txtKayitBul.Controls.Add(btn);
+            //SendMessage(txtKayitBul.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
             base.OnLoad(e);
             btn.Click += btn_Click;
         }
-
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
         private void btn_Click(object sender, EventArgs e)
         {
-
-            if (Application.OpenForms["frmHastanelerListesi"] == null)
+            if (Application.OpenForms["frmPersonellerListesi"] == null)
             {
-                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frmPersonellerListesi frm = new frmPersonellerListesi();
                 frm.MdiParent = Home.ActiveForm;
                 frm.Show();
             }
@@ -257,7 +269,15 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            
+            if (secimId > 0)
+            {
+                tblCariler hst = erp.tblCariler.Find(secimId);
+                hst.isActive = false;
+                erp.SaveChanges();
+                MessageBox.Show("Silme basarili");
+                Temizle();
+                Listele();
+            }
         }
 
         private void Liste_DoubleClick(object sender, EventArgs e)
@@ -269,6 +289,26 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
+        }
+
+        private void txtDurum_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtDurum.Checked)
+            {
+                label6.Visible = true;
+                txtBitis.Visible = true;
+            }
+            else
+            {
+                label6.Visible = false;
+                txtBitis.Visible = false;
+            }
+        }
+
+        private void Liste_DoubleClick_1(object sender, EventArgs e)
+        {
+            secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
+            Ac(secimId);
         }
     }
 }

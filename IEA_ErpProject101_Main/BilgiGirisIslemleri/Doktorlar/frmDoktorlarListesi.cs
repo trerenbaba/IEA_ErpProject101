@@ -16,6 +16,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
     {
         readonly private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
         private int secimId = -1;
+        public bool Secim = false;
         public frmDoktorlarListesi()
         {
             InitializeComponent();
@@ -53,15 +54,17 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 
         }
 
-        private void Liste_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void Liste_DoubleClick(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId > 0 && Application.OpenForms["frmDoktorGiris"] is null)
+            if (secimId > 0&& Secim && Application.OpenForms["frmDoktorGiris"] is null)
             {
-                frmDoktorGiris frm = new frmDoktorGiris();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                Home.Aktarma = secimId;
+                //frmDoktorGiris frm = new frmDoktorGiris();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
             }
             else if (Application.OpenForms["frmDoktorGiris"] != null)
             {

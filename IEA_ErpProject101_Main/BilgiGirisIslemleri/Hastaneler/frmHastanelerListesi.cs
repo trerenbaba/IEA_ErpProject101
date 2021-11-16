@@ -16,7 +16,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
     {
         private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
         private int secimId = -1;
-
+        public bool Secim = false;
         public frmHastanelerListesi()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGroupId==1
                        select s).ToList();   
             foreach (tblCariler k in lst)
             {
@@ -63,12 +64,13 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
         {
             
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            if (secimId>0 && Application.OpenForms["frmHastaneGiris"] is null)
+            if (secimId>0 && Secim &&Application.OpenForms["frmHastaneGiris"] is null)
             {
-                frmHastaneGiris frm = new frmHastaneGiris();          
-                frm.MdiParent = Home.ActiveForm;    
-                frm.Show();
-                frm.Ac(secimId);                
+                Home.Aktarma = secimId;
+                //frmHastaneGiris frm = new frmHastaneGiris();          
+                //frm.MdiParent = Home.ActiveForm;    
+                //frm.Show();
+                //frm.Ac(secimId);                
             }
             else if (Application.OpenForms["frmHastaneGiris"] !=null)
             {

@@ -40,8 +40,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.FyCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblFirmaKodu = new System.Windows.Forms.Label();
-            this.btnFormCikis = new System.Windows.Forms.Button();
             this.btnKayit = new System.Windows.Forms.Button();
+            this.btnFormCikis = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
@@ -69,6 +69,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(800, 403);
             this.Liste.TabIndex = 36;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick_1);
             // 
             // Id
             // 
@@ -160,17 +161,6 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.lblFirmaKodu.Text = "***";
             this.lblFirmaKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnFormCikis
-            // 
-            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFormCikis.Location = new System.Drawing.Point(750, 7);
-            this.btnFormCikis.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFormCikis.Name = "btnFormCikis";
-            this.btnFormCikis.Size = new System.Drawing.Size(44, 32);
-            this.btnFormCikis.TabIndex = 4;
-            this.btnFormCikis.UseVisualStyleBackColor = true;
-            // 
             // btnKayit
             // 
             this.btnKayit.BackgroundImage = global::IEA_ErpProject101_Main.Properties.Resources.Save_icon64x64;
@@ -181,6 +171,17 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Firma
             this.btnKayit.Size = new System.Drawing.Size(49, 42);
             this.btnKayit.TabIndex = 0;
             this.btnKayit.UseVisualStyleBackColor = true;
+            // 
+            // btnFormCikis
+            // 
+            this.btnFormCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFormCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFormCikis.Location = new System.Drawing.Point(750, 7);
+            this.btnFormCikis.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFormCikis.Name = "btnFormCikis";
+            this.btnFormCikis.Size = new System.Drawing.Size(44, 32);
+            this.btnFormCikis.TabIndex = 4;
+            this.btnFormCikis.UseVisualStyleBackColor = true;
             // 
             // btnGuncelle
             // 
