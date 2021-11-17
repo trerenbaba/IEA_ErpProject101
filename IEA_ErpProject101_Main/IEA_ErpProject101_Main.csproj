@@ -213,6 +213,9 @@
     <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokGiris.resx">
       <DependentUpon>frmStokGiris.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokGirisListe.resx">
+      <DependentUpon>frmStokGirisListe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +279,7 @@
       <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
     </Content>
     <Content Include="SQLYedek\yedek161121.sql" />
+    <Content Include="SQLYedek\yedek171121.sql" />
     <None Include="Images\Save24x24y.png" />
     <Content Include="OdevDosyasi.txt" />
     <Content Include="SQLYedek\Yedek151121.sql" />

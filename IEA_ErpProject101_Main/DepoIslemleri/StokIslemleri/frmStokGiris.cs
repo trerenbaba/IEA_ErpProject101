@@ -80,11 +80,12 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             Liste.AllowUserToAddRows = false;
             try
             {
+                #region Stok Giris Ust Tablosuna kayit
                 tblStokGirisUst ust = new tblStokGirisUst
                 {
                     GenelNo = int.Parse(txtGenelNo.Text),
                     CariGrupId = (int)txtCariGrup.SelectedValue,
-                    CariAdiId = db.tblCariler.First(x => x.CariAdi==txtCariAdi.Text).Id,
+                    CariAdiId = db.tblCariler.First(x => x.CariAdi == txtCariAdi.Text).Id,
                     GirisTipi = (int)txtGirisTipi.SelectedValue,
                     FaturaNo = txtFaturaNo.Text,
                     FaturaTarih = txtGirisTarih.Value,
@@ -94,14 +95,51 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
                     SaveUserId = 1
                 };
                 db.tblStokGirisUst.Add(ust);
-                db.SaveChanges();
+                db.SaveChanges(); 
+                #endregion
 
+                tblStokDurum[] drm = new tblStokDurum[Liste.RowCount];
                 tblStokGirisAlt[] alt = new tblStokGirisAlt[Liste.RowCount];
 
                 for (int i = 0; i < Liste.RowCount; i++)
                 {
                     string barkod = Liste.Rows[i].Cells[2].Value.ToString() + "/" +
                                     Liste.Rows[i].Cells[3].Value.ToString();
+
+
+                    #region Stok Durum Tablosuna kayit
+                    drm[i] = new tblStokDurum();
+                    var srg = (from s in db.tblStokDurum
+                               where s.Barkod == barkod
+                               select new { stokadet = s.StokAdet, rafadet = s.RafAdet }).ToList();
+
+                    if (srg.Count == 0)
+                    {
+                        drm[i].StokKodu = "1";
+                        drm[i].Barkod = barkod;
+                        drm[i].Urun = Liste.Rows[i].Cells[2].Value.ToString();
+                        drm[i].Lot = Liste.Rows[i].Cells[3].Value.ToString();
+                        drm[i].StokAdet = int.Parse(Liste.Rows[i].Cells[4].Value.ToString());
+                        drm[i].RafAdet = int.Parse(Liste.Rows[i].Cells[4].Value.ToString());
+                        drm[i].KonsinyeAdet = 0;
+                        drm[i].SubeAdet = 0;
+                        drm[i].UT = DateTime.Parse(Liste.Rows[i].Cells[6].Value.ToString());
+                        drm[i].SKT = DateTime.Parse(Liste.Rows[i].Cells[7].Value.ToString());
+                        db.tblStokDurum.Add(drm[i]);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        tblStokDurum sdurum = db.tblStokDurum.First(x => x.Barkod == barkod);
+                        sdurum.StokAdet += Convert.ToInt32(Liste.Rows[i].Cells[4].Value);
+                        sdurum.RafAdet += Convert.ToInt32(Liste.Rows[i].Cells[4].Value);
+                        db.SaveChanges();
+                    }
+
+                    #endregion
+
+
+                    #region Stok Giris Alt tablosuna kayit
                     alt[i] = new tblStokGirisAlt();
                     alt[i].GenelNo = int.Parse(txtGenelNo.Text);
                     alt[i].SiraNo = i + 1;
@@ -115,7 +153,8 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
                     alt[i].AlisFiyat = decimal.Parse(Liste.Rows[i].Cells[8].Value.ToString());
 
                     //db.tblStokGirisAlt.Add(alt[i]);
-                    //db.SaveChanges();
+                    //db.SaveChanges(); 
+                    #endregion
                 }
 
                 db.tblStokGirisAlt.AddRange(alt);
