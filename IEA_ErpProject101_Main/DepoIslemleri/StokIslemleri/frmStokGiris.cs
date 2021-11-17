@@ -13,10 +13,11 @@ using IEA_ErpProject101_Main.Fonksiyonlar;
 
 namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
 {
-    public partial class frmStokGiris : Form
+    public partial class frmStokGiris : Ortaklar
     {
-        private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
-        private formlar f = new formlar();
+        //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //private formlar f = new formlar();
+        //private Numaralar n = new Numaralar();
         public frmStokGiris()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
 
         private void ComboDoldur()
         {
+            txtGenelNo.Text = n.StokGirisGenelKodu();
             txtCariGrup.DataSource = db.tblCariGruplari.ToList();
             txtCariGrup.ValueMember = "Id";
             txtCariGrup.DisplayMember = "GrupAdi";

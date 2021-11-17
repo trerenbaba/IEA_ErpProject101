@@ -21,6 +21,7 @@ namespace IEA_ErpProject101_Main
 {
     public partial class Home : Form
     {
+        
         internal static tblCariler tblCarilerId=null;
         internal static tblPersonelDetay tblPersonelDetayId=null;
         private formlar f = new formlar();

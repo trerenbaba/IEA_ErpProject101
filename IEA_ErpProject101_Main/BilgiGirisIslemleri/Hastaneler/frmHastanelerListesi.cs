@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject101_Main.Entity;
+using IEA_ErpProject101_Main.Fonksiyonlar;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri
 {
-    public partial class frmHastanelerListesi : Form
+    public partial class frmHastanelerListesi : Ortaklar
     {
-        private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
         private int secimId = -1;
         public bool Secim = false;

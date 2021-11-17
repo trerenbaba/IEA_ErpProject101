@@ -14,11 +14,11 @@ using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 {
-    public partial class frmDoktorGiris : Form
+    public partial class frmDoktorGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
         
         public int secimId = -1;
 
@@ -40,14 +40,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         {
             txtDUnvan.DataSource = Enum.GetValues(typeof(DoktorUnvan));
 
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
 
             txtDepartman1.DataSource = lst;
             txtDepartman1.ValueMember = "Id";
             txtDepartman1.DisplayMember = "DepartmanAdi";
             txtDepartman1.SelectedIndex = -1;
 
-            var lst3 = erp.tblSehirler.ToList();
+            var lst3 = db.tblSehirler.ToList();
             txtSehir.DataSource = lst3;
             txtSehir.ValueMember = "id";
             txtSehir.DisplayMember = "Sehir";
@@ -57,7 +57,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId == 2
                        select new
@@ -116,8 +116,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
 
                     MessageBox.Show("Kayit basarili");
                     Temizle();
@@ -159,7 +159,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                 hst.UpdateUserId = 1;
                 hst.UpdateDate = DateTime.Now;
 
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Guncelleme basarili");
                 Temizle();
@@ -185,7 +185,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         public void Ac(int id)
         {
             secimId = id;//dis formdan veri gelirse secimId hatasi almamak icin bu islemi yaptim
-            Home.tblCarilerId = erp.tblCariler.Find(id);
+            Home.tblCarilerId = db.tblCariler.Find(id);
             try
             {
                 tblCariler hst = Home.tblCarilerId;
@@ -249,7 +249,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             {
                 tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme basarili");
                 Temizle();
                 Listele();

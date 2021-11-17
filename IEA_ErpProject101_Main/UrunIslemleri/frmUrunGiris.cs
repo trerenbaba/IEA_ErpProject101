@@ -15,11 +15,11 @@ using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.UrunIslemleri
 {
-    public partial class frmUrunGiris : Form
+    public partial class frmUrunGiris : Ortaklar
     {
-        private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
 
         private int secimId = -1;
 
@@ -38,7 +38,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblUrunler
+            var lst = (from s in db.tblUrunler
                        where s.isActive==true
                 select s).ToList();
 
@@ -64,7 +64,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
 
         private void ComboDoldur()
         {
-            txtUrunTedarikciId.DataSource = (from s in erp.tblCariler
+            txtUrunTedarikciId.DataSource = (from s in db.tblCariler
                                              where s.CariGroupId == 3
                                              where s.CariUnvan == "Distributor"
                                              select s).ToList();
@@ -94,8 +94,8 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
                 urn.SaveUserId = 1;
                 urn.isActive = true;
 
-                erp.tblUrunler.Add(urn);
-                erp.SaveChanges();
+                db.tblUrunler.Add(urn);
+                db.SaveChanges();
 
                 MessageBox.Show("Kayit basarili");
 
@@ -126,7 +126,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
         public void Ac(int id)
         {
             secimId = id;
-            urunler = erp.tblUrunler.Find(secimId);
+            urunler = db.tblUrunler.Find(secimId);
             
             try
             {
@@ -166,7 +166,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
                 urn.UpdateDate = DateTime.Now;
                 urn.UpdateUserId = 1;
 
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Guncelleme basarili");
 
@@ -202,7 +202,7 @@ namespace IEA_ErpProject101_Main.UrunIslemleri
             {
                 tblUrunler hst = urunler;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme basarili");
                 Temizle();
                 Listele();

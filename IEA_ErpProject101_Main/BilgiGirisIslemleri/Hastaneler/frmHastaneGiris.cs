@@ -14,9 +14,9 @@ using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 {
-    public partial class frmHastaneGiris : Form
+    public partial class frmHastaneGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
         private Numaralar n = new Numaralar();
 
@@ -38,7 +38,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId==1
                        select new
@@ -70,10 +70,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 
         private void ComboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst2 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst3 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst1 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst2 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst3 = db.tblSehirler.ToList();
 
             //txtDepartman1.Items.Clear();
             txtDepartman1.DataSource = lst;
@@ -156,13 +156,13 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                     hst.CariUnvan = txtHastaneCari.Text;
                     hst.Vdairesi = txtVergiDairesi.Text;
                     hst.Tc_Vn = txtVnTc.Text;
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;//erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
+                    hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;//db.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
                     hst.SaveUserId = 1;
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
 
                     MessageBox.Show("Kayit basarili");
                     Temizle();
@@ -218,11 +218,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                 hst.CariUnvan = txtHastaneCari.Text;
                 hst.Vdairesi = txtVergiDairesi.Text;
                 hst.Tc_Vn = txtVnTc.Text;
-                hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;//erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
+                hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;//db.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
                 hst.UpdateUserId = 1;
                 hst.UpdateDate = DateTime.Now;
 
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Guncelleme basarili");
                 Temizle();
@@ -240,7 +240,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             {
                 tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme basarili");
                 Temizle();
                 Listele();
@@ -285,7 +285,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         public void Ac(int id)
         {
             secimId = id;//dis formdan veri gelirse secimId hatasi almamak icin bu islemi yaptim
-            Home.tblCarilerId = erp.tblCariler.Find(id);
+            Home.tblCarilerId = db.tblCariler.Find(id);
             try
             {
                 tblCariler hst = Home.tblCarilerId;
