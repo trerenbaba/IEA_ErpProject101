@@ -37,7 +37,6 @@ namespace IEA_ErpProject101_Main
             this.pnlAltBilgi = new System.Windows.Forms.Panel();
             this.pnlSolMenu = new System.Windows.Forms.Panel();
             this.spcSolMenuOrta = new System.Windows.Forms.SplitContainer();
-            this.tvBilgiGirisIslemleri = new System.Windows.Forms.TreeView();
             this.tv12 = new System.Windows.Forms.TreeView();
             this.tv11 = new System.Windows.Forms.TreeView();
             this.tv10 = new System.Windows.Forms.TreeView();
@@ -49,6 +48,7 @@ namespace IEA_ErpProject101_Main
             this.tv4 = new System.Windows.Forms.TreeView();
             this.tvUrunIslemleri = new System.Windows.Forms.TreeView();
             this.tvDepoIslemleri = new System.Windows.Forms.TreeView();
+            this.tvBilgiGirisIslemleri = new System.Windows.Forms.TreeView();
             this.btnUrunIslemleri = new System.Windows.Forms.Button();
             this.btnDepoIslemleri = new System.Windows.Forms.Button();
             this.btnBilgiGiris = new System.Windows.Forms.Button();
@@ -164,17 +164,6 @@ namespace IEA_ErpProject101_Main
             this.spcSolMenuOrta.SplitterDistance = 175;
             this.spcSolMenuOrta.TabIndex = 1;
             // 
-            // tvBilgiGirisIslemleri
-            // 
-            this.tvBilgiGirisIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvBilgiGirisIslemleri.Location = new System.Drawing.Point(0, 0);
-            this.tvBilgiGirisIslemleri.Name = "tvBilgiGirisIslemleri";
-            this.tvBilgiGirisIslemleri.Size = new System.Drawing.Size(246, 171);
-            this.tvBilgiGirisIslemleri.TabIndex = 0;
-            this.tvBilgiGirisIslemleri.Visible = false;
-            this.tvBilgiGirisIslemleri.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvBilgiGirisIslemleri_AfterSelect);
-            this.tvBilgiGirisIslemleri.DoubleClick += new System.EventHandler(this.tvBilgiGirisIslemleri_DoubleClick);
-            // 
             // tv12
             // 
             this.tv12.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -275,6 +264,17 @@ namespace IEA_ErpProject101_Main
             this.tvDepoIslemleri.TabIndex = 1;
             this.tvDepoIslemleri.Visible = false;
             this.tvDepoIslemleri.DoubleClick += new System.EventHandler(this.tvDepoIslemleri_DoubleClick);
+            // 
+            // tvBilgiGirisIslemleri
+            // 
+            this.tvBilgiGirisIslemleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvBilgiGirisIslemleri.Location = new System.Drawing.Point(0, 0);
+            this.tvBilgiGirisIslemleri.Name = "tvBilgiGirisIslemleri";
+            this.tvBilgiGirisIslemleri.Size = new System.Drawing.Size(246, 171);
+            this.tvBilgiGirisIslemleri.TabIndex = 0;
+            this.tvBilgiGirisIslemleri.Visible = false;
+            this.tvBilgiGirisIslemleri.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvBilgiGirisIslemleri_AfterSelect);
+            this.tvBilgiGirisIslemleri.DoubleClick += new System.EventHandler(this.tvBilgiGirisIslemleri_DoubleClick);
             // 
             // btnUrunIslemleri
             // 
@@ -385,6 +385,7 @@ namespace IEA_ErpProject101_Main
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "Erp Project";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
             this.tabUstMenu.ResumeLayout(false);
             this.tabPGenel.ResumeLayout(false);

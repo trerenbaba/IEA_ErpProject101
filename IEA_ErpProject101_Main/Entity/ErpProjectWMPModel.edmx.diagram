@@ -4,22 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89263a08e1b242bb865792bfa64b1ba3" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="3" PointY="2.75" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="3" PointY="14.75" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="5.25" PointY="8.125" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="5.25" PointY="3.5" />
+      <Diagram DiagramId="a6cd44cafb78407c87d7412f75ab40e8" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariGruplari" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblCariler" Width="1.5" PointX="9.75" PointY="0.5" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblDepartmanlar" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblPersonelDetay" Width="1.5" PointX="8.25" PointY="9.875" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSehirler" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokDurum" Width="1.5" PointX="16.375" PointY="5.625" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisAlt" Width="1.5" PointX="14" PointY="5.25" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisUst" Width="1.5" PointX="12.125" PointY="4.375" />
+        <EntityTypeShape EntityType="ErpProjectWMPModel.tblUrunler" Width="1.5" PointX="8.25" PointY="12.625" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblDepartmanlar_tblCariGruplari" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariGruplari" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblCariler_tblSehirler" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblPersonelDetay_tblCariler" />
-        <AssociationConnector Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblSokGirisAlt" Width="1.5" PointX="7.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ErpProjectWMPModel.tblStokGirisUst" Width="1.5" PointX="8.25" PointY="5" />
-        <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariGruplari" />
         <AssociationConnector Association="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariler" />
+        <AssociationConnector Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

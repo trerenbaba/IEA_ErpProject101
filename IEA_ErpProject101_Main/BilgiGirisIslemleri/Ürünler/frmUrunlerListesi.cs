@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
 {
-    public partial class frmUrunlerListesi : Form
+    public partial class frmUrunlerListesi : Ortaklar
     {
-        ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //ErpProjectWMPEntities db = new ErpProjectWMPEntities();
         private int secimId = -1;
-        Numaralar n = new Numaralar();
+        //Numaralar n = new Numaralar();
         public frmUrunlerListesi()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblUrunler
+            var lst = (from s in db.tblUrunler
                        where s.isActive == true
                        select s).ToList();
 

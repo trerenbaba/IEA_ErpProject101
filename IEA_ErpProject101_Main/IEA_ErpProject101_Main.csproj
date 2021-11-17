@@ -157,7 +157,10 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\tblSokGirisAlt.cs">
+    <Compile Include="Entity\tblStokDurum.cs">
+      <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblStokGirisAlt.cs">
       <DependentUpon>ErpProjectWMPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\tblStokGirisUst.cs">
@@ -170,7 +173,11 @@
     <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvan.cs" />
     <Compile Include="Fonksiyonlar\formlar.cs" />
+    <Compile Include="Fonksiyonlar\GirisTipleri.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
+    <Compile Include="Fonksiyonlar\Ortaklar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +188,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BilgiGirisIslemleri\DepIslemleri\StokIslemleri\frmStokGiris.resx">
       <DependentUpon>frmStokGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\DepIslemleri\StokIslemleri\frmStokGirisListe.resx">
+      <DependentUpon>frmStokGirisListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGiris.resx">
       <DependentUpon>frmDoktorGiris.cs</DependentUpon>
@@ -256,16 +266,6 @@
     <None Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entity\ErpProjectWMPModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ErpProjectWMPModel.Context.cs</LastGenOutput>
-      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Entity\ErpProjectWMPModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
-      <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
-    </Content>
     <None Include="Images\Save24x24y.png" />
     <None Include="Images\arrow-1176.bmp" />
     <None Include="Images\Sil64.png" />
@@ -277,6 +277,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\ErpProjectWMPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
+      <LastGenOutput>ErpProjectWMPModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\ErpProjectWMPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpProjectWMPModel.edmx</DependentUpon>
+      <LastGenOutput>ErpProjectWMPModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

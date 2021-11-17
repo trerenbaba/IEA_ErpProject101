@@ -14,10 +14,10 @@ using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 {
-    public partial class frmHastaneGiris : Form
+    public partial class frmHastaneGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
-        private Numaralar n = new Numaralar();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
+        //private Numaralar n = new Numaralar();
         public int secimId = -1;
 
         public frmHastaneGiris()
@@ -37,7 +37,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             Liste.Rows.Clear();
             int i = 0;
             int sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                       where s.isActive == true
                       select new
                       {
@@ -68,10 +68,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
 
         private void ComboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst1 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst2 = erp.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
-            var lst3 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst1 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst2 = db.tblDepartmanlar.Where(x => x.GrupId == 1).ToList();
+            var lst3 = db.tblSehirler.ToList();
             txtDepartman1.DataSource = lst;
             txtDepartman1.ValueMember = "Id";
             txtDepartman1.DisplayMember = "DepartmanAdi";
@@ -155,8 +155,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
                     MessageBox.Show("Kayıt başarılı...");
                     Temizle();
                     Listele(); 
@@ -215,7 +215,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
                     hst.UpdateDate = DateTime.Now;
 
 
-                    erp.SaveChanges();
+                    db.SaveChanges();
                     MessageBox.Show("Güncelleme başarılı...");
                     Temizle();
                     Listele(); 
@@ -234,7 +234,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
             {
                 tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();
@@ -267,7 +267,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Hastaneler
         public void Ac(int id)
         {
             secimId = id; //dış formdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
-            Home.tblCarilerId= erp.tblCariler.Find(id);
+            Home.tblCarilerId= db.tblCariler.Find(id);
             try
             {
                 tblCariler hst = Home.tblCarilerId;

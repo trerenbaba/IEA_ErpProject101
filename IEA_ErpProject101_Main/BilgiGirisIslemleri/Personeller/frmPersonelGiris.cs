@@ -14,11 +14,11 @@ using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 {
-    public partial class frmPersonelGiris : Form
+    public partial class frmPersonelGiris : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
 
         public int secimId = -1;
 
@@ -37,7 +37,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblPersonelDetay
+            var lst = (from s in db.tblPersonelDetay
                        where s.tblCariler.isActive == true
                        where s.tblCariler.CariGroupId == 6
                        select s).ToList();
@@ -66,14 +66,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             txtPUnvan.DataSource = Enum.GetValues(typeof(enumPersonelUnvan));
             txtPUnvan.SelectedIndex = -1;
 
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 6).ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 6).ToList();
 
             txtPDepartman.DataSource = lst;
             txtPDepartman.ValueMember = "Id";
             txtPDepartman.DisplayMember = "DepartmanAdi";
             txtPDepartman.SelectedIndex = -1;
 
-            var lst3 = erp.tblSehirler.ToList();
+            var lst3 = db.tblSehirler.ToList();
             txtSehir.DataSource = lst3;
             txtSehir.ValueMember = "id";
             txtSehir.DisplayMember = "Sehir";
@@ -111,17 +111,17 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
                     hst.SaveDate = DateTime.Now;
                     hst.CariNo = pkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
 
                     tblPersonelDetay pdet = new tblPersonelDetay();
 
-                    pdet.CariId = erp.tblCariler.First(x => x.CariAdi == txtPAdi.Text).Id;
+                    pdet.CariId = db.tblCariler.First(x => x.CariAdi == txtPAdi.Text).Id;
                     pdet.IsBasiTarih = txtBaslangic.Value;
                     //pdet.IsSonuTarih = txtBitis.Value;
 
-                    erp.tblPersonelDetay.Add(pdet);
-                    erp.SaveChanges();
+                    db.tblPersonelDetay.Add(pdet);
+                    db.SaveChanges();
 
                     MessageBox.Show("Kayit basarili");
                     Temizle();
@@ -148,7 +148,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
             }
             try
             {
-                tblPersonelDetay hst = erp.tblPersonelDetay.First(x => x.Id == secimId);
+                tblPersonelDetay hst = db.tblPersonelDetay.First(x => x.Id == secimId);
                 hst.tblCariler.CariAdi = txtPAdi.Text;
                 hst.tblCariler.CariMail = txtPMail.Text;
                 hst.tblCariler.CariTel = txtPTel.Text;
@@ -170,7 +170,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
                 }
 
 
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Guncelleme basarili");
                 Temizle();
@@ -205,7 +205,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         public void Ac(int id)
         {
             secimId = id;//dis formdan veri gelirse secimId hatasi almamak icin bu islemi yaptim
-            Home.tblPersonelDetayId= erp.tblPersonelDetay.Find(id);
+            Home.tblPersonelDetayId= db.tblPersonelDetay.Find(id);
             try
             {
                 txtDurum.Visible = true;
@@ -272,10 +272,10 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             if (secimId > 0)
             {
-                Home.tblCarilerId = erp.tblCariler.Find(secimId);
+                Home.tblCarilerId = db.tblCariler.Find(secimId);
                 tblCariler hst = Home.tblCarilerId;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme basarili");
                 Temizle();
                 Listele();

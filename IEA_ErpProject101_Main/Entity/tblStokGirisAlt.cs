@@ -12,7 +12,7 @@ namespace IEA_ErpProject101_Main.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class tblSokGirisAlt
+    public partial class tblStokGirisAlt
     {
         public int Id { get; set; }
         public Nullable<int> GenelNo { get; set; }

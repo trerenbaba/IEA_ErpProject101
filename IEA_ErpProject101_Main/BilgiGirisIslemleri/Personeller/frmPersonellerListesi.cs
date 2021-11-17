@@ -13,11 +13,11 @@ using IEA_ErpProject101_Main.Fonksiyonlar;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
 {
-    public partial class frmPersonellerListesi : Form
+    public partial class frmPersonellerListesi : Ortaklar
     {
-        private readonly ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //private readonly ErpProjectWMPEntities db = new ErpProjectWMPEntities();
 
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
 
         public int secimId = -1;
         public bool Secim = false;
@@ -34,7 +34,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Personeller
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblPersonelDetay
+            var lst = (from s in db.tblPersonelDetay
                        where s.tblCariler.isActive == true
                        where s.tblCariler.CariGroupId == 6
                        select s).ToList();

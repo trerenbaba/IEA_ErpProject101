@@ -18,9 +18,9 @@ namespace IEA_ErpProject101_Main.Entity
         public Nullable<int> GenelNo { get; set; }
         public Nullable<int> CariGrupId { get; set; }
         public Nullable<int> CariAdiId { get; set; }
-        public Nullable<int> GirisTipi { get; set; }
+        public Nullable<int> GrisTipi { get; set; }
         public string FaturaNo { get; set; }
-        public string FaturaTarih { get; set; }
+        public Nullable<System.DateTime> FaturaTarih { get; set; }
         public string Aciklama { get; set; }
         public Nullable<System.DateTime> SaveDate { get; set; }
         public Nullable<int> SaveUserId { get; set; }

@@ -12,11 +12,11 @@ using IEA_ErpProject101_Main.Entity;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 {
-    public partial class frmDoktorGiris : Form
+    public partial class frmDoktorGiris : Ortaklar
     {
-        readonly private ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+       // readonly private ErpProjectWMPEntities db = new ErpProjectWMPEntities();
         public  int secimId = -1;
-        private Numaralar n = new Numaralar();
+        //private Numaralar n = new Numaralar();
         private tblCariler idyeGoreBul;
 
         public frmDoktorGiris()
@@ -32,8 +32,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
 
         private void ComboDoldur()
         {
-            var lst = erp.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
-            var lst2 = erp.tblSehirler.ToList();
+            var lst = db.tblDepartmanlar.Where(x => x.GrupId == 2).ToList();
+            var lst2 = db.tblSehirler.ToList();
             txtDUnvan.DataSource = Enum.GetValues(typeof(DoktorUnvan));
 
             txtDepartman.DataSource = lst;
@@ -58,7 +58,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             Liste.Rows.Clear();
             int i = 0;
             int sira = 1;
-            var lst = (from s in erp.tblCariler
+            var lst = (from s in db.tblCariler
                        where s.isActive == true
                        where s.CariGroupId==2
                        select new
@@ -120,8 +120,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                     hst.SaveDate    = DateTime.Now;
                     hst.CariNo      = hkodu;
 
-                    erp.tblCariler.Add(hst);
-                    erp.SaveChanges();
+                    db.tblCariler.Add(hst);
+                    db.SaveChanges();
                     MessageBox.Show("Kayıt başarılı...");
                     Temizle();
                     Listele();
@@ -177,7 +177,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
                 dr.UpdateUserId = 1;
                 dr.UpdateDate = DateTime.Now;
                 
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Güncelleme başarılı...");
                 Temizle();
                 Listele();
@@ -198,7 +198,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
         public void Ac(int id)
         {
             secimId = id; //dış formdan veri gelirse secimId hatası almamak için bu işlemi yaptım.
-            idyeGoreBul = erp.tblCariler.Find(id);
+            idyeGoreBul = db.tblCariler.Find(id);
             try
             {
                 tblCariler dr = idyeGoreBul;
@@ -227,7 +227,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Doktorlar
             {
                 tblCariler dr = idyeGoreBul;
                 dr.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme Başarılı");
                 Temizle();
                 Listele();

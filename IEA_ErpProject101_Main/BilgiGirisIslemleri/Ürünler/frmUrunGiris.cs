@@ -14,11 +14,11 @@ using IEA_ErpProject101_Main.Properties;
 
 namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
 {
-    public partial class frmUrunGiris : Form
+    public partial class frmUrunGiris : Ortaklar
     {
-        ErpProjectWMPEntities erp = new ErpProjectWMPEntities();
+        //ErpProjectWMPEntities db = new ErpProjectWMPEntities();
         private int secimId = -1;
-        Numaralar n = new Numaralar();
+        //Numaralar n = new Numaralar();
         
         public frmUrunGiris()
         {
@@ -35,7 +35,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblUrunler
+            var lst = (from s in db.tblUrunler
                        where s.isActive == true
                        select s).ToList();
 
@@ -50,6 +50,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
                 i++;
                 sira++;
             }
+
             Liste.AllowUserToAddRows = false;
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -60,10 +61,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
 
         private void ComboDoldur()
         {
-            txtUrunTedarikciId.DataSource = (from s in erp.tblCariler
-                                             where s.CariGroupId==3
+            txtUrunTedarikciId.DataSource = (from s in db.tblCariler
+                                             where s.CariGroupId == 3
                                              where s.CariUnvan == "Distributor"
-                                             
                                              select s).ToList();
             txtUrunTedarikciId.ValueMember = "Id";
             txtUrunTedarikciId.DisplayMember = "CariAdi";
@@ -84,14 +84,14 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
                 urn.AlisFiyat = decimal.Parse(txtUAlis.Text);
                 urn.SatisFiyat = decimal.Parse(txtUSatis.Text);
                 urn.KutuIcerik = txtUKutuIcerik.Text;
-                urn.UrunGenelNo = txtKayitBul.Text;
+                urn.UrunGenelNo = n.UrunGenelKodu();
                 urn.UrunAciklama = txtUAciklama.Text;
                 urn.SaveDate = DateTime.Now;
                 urn.SaveUserId = 1;
                 urn.isActive = true;
 
-                erp.tblUrunler.Add(urn);
-                erp.SaveChanges();
+                db.tblUrunler.Add(urn);
+                db.SaveChanges();
 
                 MessageBox.Show("Kayit basarili");
 
@@ -122,16 +122,16 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
         public void Ac(int id)
         {
             secimId = id;
-            urunler = erp.tblUrunler.Find(secimId);
+            urunler = db.tblUrunler.Find(secimId);
+
             try
             {
                 tblUrunler urn = urunler;
                 txtUrunTedarikciId.Text = urn.tblCariler.CariAdi;
                 txtKayitBul.Text = urn.UrunGenelNo;
                 txtUKodu.Text = urn.UrunKodu;
-                txtUAdi.Text = urn.UrunAdi;
                 txtUAciklama.Text = urn.UrunAciklama;
-                txtUKodu.Text = urn.UrunAdi;
+                txtUAdi.Text = urn.UrunAdi;
                 txtUAlis.Text = urn.AlisFiyat.ToString();
                 txtUSatis.Text = urn.SatisFiyat.ToString();
                 txtUKutuIcerik.Text = urn.KutuIcerik;
@@ -151,10 +151,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             try
             {
                 tblUrunler urn = urunler;
-                urn.UrunAdi = txtUKodu.Text;
+                urn.UrunAdi = txtUAdi.Text;
                 urn.TedarikciFirmaId = (int)txtUrunTedarikciId.SelectedValue;
                 urn.UrunKodu = txtUKodu.Text;
-                urn.UrunAdi = txtUAdi.Text;
                 urn.AlisFiyat = decimal.Parse(txtUAlis.Text);
                 urn.SatisFiyat = decimal.Parse(txtUSatis.Text);
                 urn.KutuIcerik = txtUKutuIcerik.Text;
@@ -163,7 +162,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
                 urn.UpdateDate = DateTime.Now;
                 urn.UpdateUserId = 1;
 
-                erp.SaveChanges();
+                db.SaveChanges();
 
                 MessageBox.Show("Guncelleme basarili");
 
@@ -219,7 +218,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             {
                 tblUrunler hst = urunler;
                 hst.isActive = false;
-                erp.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Silme basarili");
                 Temizle();
                 Listele();
