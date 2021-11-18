@@ -280,6 +280,7 @@
     </Content>
     <Content Include="SQLYedek\yedek161121.sql" />
     <Content Include="SQLYedek\yedek171121.sql" />
+    <Content Include="SQLYedek\yedek181121.sql" />
     <None Include="Images\Save24x24y.png" />
     <Content Include="OdevDosyasi.txt" />
     <Content Include="SQLYedek\Yedek151121.sql" />
