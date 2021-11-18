@@ -68,8 +68,11 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
             txtCariGrup.ValueMember = "Id";
             txtCariGrup.DisplayMember = "GrupAdi";
             txtCariGrup.SelectedIndex = -1;
+
+           
         }
 
+  
         private void YeniKayit()
         {
             #region Stok giriş ust tablosuna kayit
@@ -95,7 +98,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
                     SaveUserId = 1,
                 };
                 db.tblStokGirisUst.Add(ust);
-                db.SaveChanges(); 
+                //db.SaveChanges(); 
                 #endregion
 
                 tblStokDurum[] drm = new tblStokDurum[Liste.RowCount];
@@ -123,7 +126,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
                         drm[i].UT = DateTime.Parse(Liste.Rows[i].Cells[6].Value.ToString());
                         drm[i].SKT = DateTime.Parse(Liste.Rows[i].Cells[7].Value.ToString());
                         db.tblStokDurum.Add(drm[i]);
-                        db.SaveChanges();
+                        //db.SaveChanges();
                     }
                     else
                     {
@@ -243,10 +246,53 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
             }
         }
 
+
         private void btnUrunGiris_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int id = f.StokGirisListesi(true);
+            if (id > 0)
+            {
+                FormAc(id);
+                
+            }
+            Home.Aktarma = -1;
         }
+        private void FormAc(int id)
+        {
+            int toplam = 0;
+            var kayitBul = db.tblStokGirisUst.Find(id);
+            tblStokGirisUst ust = kayitBul;
+            txtGenelNo.Text = ust.GenelNo.ToString();
+            txtCariGrup.Text = ust.tblCariGruplari.GrupAdi;
+            txtAciklama.Text = ust.Aciklama;
+            txtFaturaNo.Text = ust.FaturaNo;
+            txtCariAdi.Text = ust.tblCariler.CariAdi;
+            if (ust.FaturaTarih != null) txtGirisTarihi.Value = (DateTime)ust.FaturaTarih;
+            if (ust.GrisTipi != null) txtGirisTipi.SelectedIndex = ust.GrisTipi.Value;
+            var alt = db.tblStokGirisAlt.Where(x => x.GenelNo.ToString() == txtGenelNo.Text);
+            int i = 0;
+            Liste.Rows.Clear();
+            foreach (var k in alt)
+            {
+                Liste.Rows.Add();
+                Liste.Rows[i].Cells[0].Value = k.SiraNo;
+                Liste.Rows[i].Cells[1].Value = k.Barkod;
+                Liste.Rows[i].Cells[2].Value = k.UrunKodu;
+                Liste.Rows[i].Cells[3].Value = k.LotSeriNo;
+                Liste.Rows[i].Cells[4].Value = k.Adet;
+                Liste.Rows[i].Cells[5].Value = k.Not;
+                Liste.Rows[i].Cells[6].Value = k.UT;
+                Liste.Rows[i].Cells[7].Value = k.SKT;
+                Liste.Rows[i].Cells[8].Value = k.AlisFiyat;
+                toplam+=(int)k.Adet;
+                i++;
+            }
+            txtToplam.Text = toplam.ToString();
+            Liste.AllowUserToAddRows = false;
+            Liste.ReadOnly = true;
+        }
+
+        
         #endregion
 
         #region DataGridView İşlemleri
@@ -288,6 +334,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
                             {
                                 a = Liste.CurrentRow.Cells[2].Value.ToString();
                             }
+                            
                             try
                             {
                                 var lst = (from s in db.tblUrunler
@@ -299,6 +346,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
                             {
                                 MessageBox.Show(ex.Message);
                             }
+                            
                         }
                         else
                         {
@@ -308,9 +356,19 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
                         i++;
                     }
                 }
-
-
-
+                if (e.ColumnIndex==6)
+                {
+                    if (Liste.CurrentRow.Cells[6].Value != null || Liste.CurrentRow.Cells[6].Value != "")
+                    {
+                        string a = Liste.CurrentRow.Cells[2].Value.ToString();
+                        var lst = (from s in db.tblUrunler
+                                   where s.UrunKodu == a
+                                   select s).FirstOrDefault();
+                        int ayy = lst.KullanımSuresiAy.Value;
+                        DateTime ay = Convert.ToDateTime(Liste.CurrentRow.Cells[6].Value);
+                        Liste.CurrentRow.Cells[7].Value = ay.AddMonths(ayy).ToShortDateString(); 
+                    }
+                }
 
 
             }

@@ -71,8 +71,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
         }
         private void YeniKayit()
         {
-            if (secimId != -1 || txtUKodu.Text == "")
+            if (secimId != -1 || txtUKodu.Text == ""||txtKullanimAy.Text=="")
             {
+                MessageBox.Show("Ürün kodu veya kullanım süresi boş bırakılmaz... yada ");
                 return;
             }
             try
@@ -86,6 +87,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
                 urn.KutuIcerik = txtUKutuIcerik.Text;
                 urn.UrunGenelNo = n.UrunGenelKodu();
                 urn.UrunAciklama = txtUAciklama.Text;
+                urn.KullanımSuresiAy =(int)txtKullanimAy.Value;
                 urn.SaveDate = DateTime.Now;
                 urn.SaveUserId = 1;
                 urn.isActive = true;
@@ -109,7 +111,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
         {
             foreach (Control k in pnlOrta.Controls)
             {
-                if (k is TextBox || k is ComboBox || k is MaskedTextBox)
+                if (k is TextBox || k is ComboBox || k is MaskedTextBox || k is NumericUpDown)
                 {
                     k.Text = "";
                 }
@@ -135,6 +137,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
                 txtUAlis.Text = urn.AlisFiyat.ToString();
                 txtUSatis.Text = urn.SatisFiyat.ToString();
                 txtUKutuIcerik.Text = urn.KutuIcerik;
+                txtKullanimAy.Text= urn.KullanımSuresiAy.ToString();
+                
             }
             catch (Exception e)
             {
@@ -159,6 +163,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
                 urn.KutuIcerik = txtUKutuIcerik.Text;
                 urn.UrunGenelNo = txtKayitBul.Text;
                 urn.UrunAciklama = txtUAciklama.Text;
+                urn.KullanımSuresiAy = (int)txtKullanimAy.Value;
                 urn.UpdateDate = DateTime.Now;
                 urn.UpdateUserId = 1;
 

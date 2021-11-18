@@ -61,9 +61,13 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblFirmaKodu = new System.Windows.Forms.Label();
             this.btnKayit = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtKullanimAy = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlOrta.SuspendLayout();
             this.pnlUst.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKullanimAy)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTemizle
@@ -216,6 +220,9 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             // pnlOrta
             // 
             this.pnlOrta.AutoScroll = true;
+            this.pnlOrta.Controls.Add(this.txtKullanimAy);
+            this.pnlOrta.Controls.Add(this.label6);
+            this.pnlOrta.Controls.Add(this.label3);
             this.pnlOrta.Controls.Add(this.label11);
             this.pnlOrta.Controls.Add(this.txtUSatis);
             this.pnlOrta.Controls.Add(this.txtUAdi);
@@ -255,7 +262,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             this.txtUSatis.Location = new System.Drawing.Point(109, 163);
             this.txtUSatis.Margin = new System.Windows.Forms.Padding(2);
             this.txtUSatis.Name = "txtUSatis";
-            this.txtUSatis.Size = new System.Drawing.Size(112, 20);
+            this.txtUSatis.Size = new System.Drawing.Size(130, 20);
             this.txtUSatis.TabIndex = 58;
             // 
             // txtUAdi
@@ -352,7 +359,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             this.txtUAlis.Location = new System.Drawing.Point(109, 127);
             this.txtUAlis.Margin = new System.Windows.Forms.Padding(2);
             this.txtUAlis.Name = "txtUAlis";
-            this.txtUAlis.Size = new System.Drawing.Size(112, 20);
+            this.txtUAlis.Size = new System.Drawing.Size(130, 20);
             this.txtUAlis.TabIndex = 3;
             // 
             // txtUKutuIcerik
@@ -413,6 +420,35 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             this.btnKayit.UseVisualStyleBackColor = true;
             this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label3.Location = new System.Drawing.Point(13, 201);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 36);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Kullanım Süresi :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label6.Location = new System.Drawing.Point(109, 227);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 22);
+            this.label6.TabIndex = 60;
+            this.label6.Text = "Giriş Ay olarak yapılacak.";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtKullanimAy
+            // 
+            this.txtKullanimAy.Location = new System.Drawing.Point(109, 201);
+            this.txtKullanimAy.Name = "txtKullanimAy";
+            this.txtKullanimAy.Size = new System.Drawing.Size(130, 20);
+            this.txtKullanimAy.TabIndex = 61;
+            // 
             // frmUrunGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +466,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
             this.pnlOrta.ResumeLayout(false);
             this.pnlOrta.PerformLayout();
             this.pnlUst.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtKullanimAy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,5 +505,8 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.Ürünler
         private System.Windows.Forms.DataGridViewTextBoxColumn GenelNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown txtKullanimAy;
     }
 }

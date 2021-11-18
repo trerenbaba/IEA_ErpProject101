@@ -139,6 +139,7 @@
           <Property Name="TedarikciFirmaId" Type="int" />
           <Property Name="AlisFiyat" Type="decimal" Precision="11" Scale="2" />
           <Property Name="SatisFiyat" Type="decimal" Precision="11" Scale="2" />
+          <Property Name="KullanımSuresiAy" Type="int" />
           <Property Name="SaveDate" Type="datetime" />
           <Property Name="SaveUserId" Type="int" />
           <Property Name="UpdateDate" Type="datetime" />
@@ -281,7 +282,6 @@
           <EntitySet Name="tblStokDurum" EntityType="ErpProjectWMPModel.tblStokDurum" />
           <EntitySet Name="tblStokGirisAlt" EntityType="ErpProjectWMPModel.tblStokGirisAlt" />
           <EntitySet Name="tblStokGirisUst" EntityType="ErpProjectWMPModel.tblStokGirisUst" />
-          <EntitySet Name="tblUrunler" EntityType="ErpProjectWMPModel.tblUrunler" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="ErpProjectWMPModel.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
             <End Role="tblCariler" EntitySet="tblCariler" />
@@ -306,6 +306,7 @@
             <End Role="tblCariler" EntitySet="tblCariler" />
             <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
           </AssociationSet>
+          <EntitySet Name="tblUrunler" EntityType="ErpProjectWMPModel.tblUrunler" />
           <AssociationSet Name="FK_tblUrunler_tblCariler" Association="ErpProjectWMPModel.FK_tblUrunler_tblCariler">
             <End Role="tblCariler" EntitySet="tblCariler" />
             <End Role="tblUrunler" EntitySet="tblUrunler" />
@@ -445,26 +446,6 @@
           <NavigationProperty Name="tblCariGruplari" Relationship="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariGruplari" FromRole="tblStokGirisUst" ToRole="tblCariGruplari" />
           <NavigationProperty Name="tblCariler" Relationship="ErpProjectWMPModel.FK_tblStokGirisUst_tblCariler" FromRole="tblStokGirisUst" ToRole="tblCariler" />
         </EntityType>
-        <EntityType Name="tblUrunler">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UrunGenelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UrunAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="KutuIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TedarikciFirmaId" Type="Int32" />
-          <Property Name="AlisFiyat" Type="Decimal" Precision="11" Scale="2" />
-          <Property Name="SatisFiyat" Type="Decimal" Precision="11" Scale="2" />
-          <Property Name="SaveDate" Type="DateTime" Precision="3" />
-          <Property Name="SaveUserId" Type="Int32" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdateUserId" Type="Int32" />
-          <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="tblCariler" Relationship="ErpProjectWMPModel.FK_tblUrunler_tblCariler" FromRole="tblUrunler" ToRole="tblCariler" />
-        </EntityType>
         <Association Name="FK_tblCariler_tblCariGruplari">
           <End Type="ErpProjectWMPModel.tblCariGruplari" Role="tblCariGruplari" Multiplicity="0..1" />
           <End Type="ErpProjectWMPModel.tblCariler" Role="tblCariler" Multiplicity="*" />
@@ -537,6 +518,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tblUrunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunGenelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KutuIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TedarikciFirmaId" Type="Int32" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="KullanımSuresiAy" Type="Int32" />
+          <Property Name="SaveDate" Type="DateTime" Precision="3" />
+          <Property Name="SaveUserId" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="tblCariler" Relationship="ErpProjectWMPModel.FK_tblUrunler_tblCariler" FromRole="tblUrunler" ToRole="tblCariler" />
+        </EntityType>
         <Association Name="FK_tblUrunler_tblCariler">
           <End Type="ErpProjectWMPModel.tblCariler" Role="tblCariler" Multiplicity="0..1" />
           <End Type="ErpProjectWMPModel.tblUrunler" Role="tblUrunler" Multiplicity="*" />
@@ -692,6 +694,7 @@
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="SaveUserId" ColumnName="SaveUserId" />
                 <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+                <ScalarProperty Name="KullanımSuresiAy" ColumnName="KullanımSuresiAy" />
                 <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
                 <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
                 <ScalarProperty Name="TedarikciFirmaId" ColumnName="TedarikciFirmaId" />
