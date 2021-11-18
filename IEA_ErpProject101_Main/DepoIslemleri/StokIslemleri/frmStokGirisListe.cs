@@ -15,6 +15,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
     public partial class frmStokGirisListe : Ortaklar
     {
         public bool Secim = false;
+        public int secimId = -1;
         public frmStokGirisListe()
         {
             InitializeComponent();
@@ -29,33 +30,34 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in db.tblCariler
+            var lst = (from s in db.tblStokGirisUst
                 where s.isActive == true
-                where s.CariGroupId == 2
-                select new
-                {
-                    id = s.Id,
-                    hcode = s.CariNo,
-                    hadi = s.CariAdi,
-                    htel = s.CariTel,
-                    hmail = s.CariMail,
-                    hyetcep = s.YetkiliCep1
-                }).ToList();
+                select s).ToList();
             foreach (var k in lst)
             {
                 Liste.Rows.Add();
-                Liste.Rows[i].Cells[0].Value = k.id;
-                Liste.Rows[i].Cells[1].Value = sira;
-                Liste.Rows[i].Cells[2].Value = k.hcode;
-                Liste.Rows[i].Cells[3].Value = k.hadi;
-                Liste.Rows[i].Cells[4].Value = k.htel;
-                Liste.Rows[i].Cells[5].Value = k.hmail;
-                Liste.Rows[i].Cells[6].Value = k.hyetcep;
+                Liste.Rows[i].Cells[0].Value = k.Id;
+                Liste.Rows[i].Cells[1].Value = k.GenelNo;
+                Liste.Rows[i].Cells[2].Value = k.tblCariler.CariAdi;
+                Liste.Rows[i].Cells[3].Value = k.FaturaNo;
+                Liste.Rows[i].Cells[4].Value = k.FaturaTarih;
+                Liste.Rows[i].Cells[5].Value = k.GirisTipi;
+                
                 i++;
                 sira++;
             }
 
             Liste.AllowUserToAddRows = false;
+        }
+
+        private void Liste_DoubleClick(object sender, EventArgs e)
+        {
+            if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
+            if (secimId>0 && Secim)
+            {
+                Home.Aktarma = secimId;
+                Close();
+            }
         }
     }
 }

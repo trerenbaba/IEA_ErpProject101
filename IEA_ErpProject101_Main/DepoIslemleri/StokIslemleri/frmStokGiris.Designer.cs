@@ -263,9 +263,9 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.txtUrnCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtUrnCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtUrnCombo.FormattingEnabled = true;
-            this.txtUrnCombo.Location = new System.Drawing.Point(37, 12);
+            this.txtUrnCombo.Location = new System.Drawing.Point(10, 12);
             this.txtUrnCombo.Name = "txtUrnCombo";
-            this.txtUrnCombo.Size = new System.Drawing.Size(312, 24);
+            this.txtUrnCombo.Size = new System.Drawing.Size(52, 24);
             this.txtUrnCombo.TabIndex = 4;
             // 
             // btnTemizle
@@ -358,7 +358,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.Sira.MinimumWidth = 6;
             this.Sira.Name = "Sira";
             this.Sira.Visible = false;
-            this.Sira.Width = 62;
+            this.Sira.Width = 125;
             // 
             // barcode
             // 
@@ -426,7 +426,7 @@ namespace IEA_ErpProject101_Main.DepoIslemleri.StokIslemleri
             this.AlisFiyat.HeaderText = "Alis Fiyati";
             this.AlisFiyat.MinimumWidth = 6;
             this.AlisFiyat.Name = "AlisFiyat";
-            this.AlisFiyat.Width = 96;
+            this.AlisFiyat.Width = 89;
             // 
             // frmStokGiris
             // 
