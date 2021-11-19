@@ -32,7 +32,7 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
             Liste.Rows.Clear();
             int i = 0, sira = 1;
             var lst = (from s in db.tblStokGirisUst
-                      where s.isActive==true
+                       where s.isActive == true
                        select s).ToList();
             foreach (var k in lst)
             {
@@ -47,21 +47,19 @@ namespace IEA_ErpProject101_Main.BilgiGirisIslemleri.DepIslemleri.StokIslemleri
                 i++;
                 sira++;
             }
+
             Liste.AllowUserToAddRows = false;
-            Liste.ReadOnly = true;
-            Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
             if (Liste.CurrentRow != null) secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-
-            if (secimId>0 && Secim)
+            if (secimId > 0 && Secim)
             {
                 Home.Aktarma = secimId;
                 Close();
             }
-            
+
 
         }
     }
